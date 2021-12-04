@@ -8,12 +8,18 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
+
 @RestController
 public class SaleRegisterController {
     private final SaleRegisterRepository repository;
 
     public SaleRegisterController(SaleRegisterRepository repository) {
         this.repository = repository;
+    }
+    @GetMapping("/saleregisters/{registroID}") // convert the next method to an endpoint
+    Optional<SaleRegister> getSaleRegisterById(@PathVariable String registroID){
+        return this.repository.findById(registroID);
     }
     @GetMapping("/saleregisterspv/{proveedor}") // convert the next method to an endpoint
     List<SaleRegister> getSaleRegisterByProveedor(@PathVariable Integer proveedor){
