@@ -6,59 +6,54 @@ import org.springframework.data.annotation.Id;
 public class SaleRegister {
     @Id
     private String registroID;
-    private String nombreCliente;
-    private String proveedor;
-    private String nombreProducto;
+    private Integer cliente;
+    private Integer proveedor;
+    private Integer producto;
     private Integer cantidad;
     private Integer precio;
     private Integer total;
     private Date fecha;
-    private String promocion;
+    private Float promocion;
 
-    public SaleRegister(String registroID, String nombreCliente, String proveedor, String nombreProducto, Integer cantidad, Integer precio, Date fecha, String promocion) {
+    public SaleRegister(String registroID, Integer cliente, Integer proveedor, Integer producto, Integer cantidad, Integer precio, Date fecha, Float promocion) {
         this.registroID = registroID;
-        this.nombreCliente = nombreCliente;
+        this.cliente = cliente;
         this.proveedor = proveedor;
-        this.nombreProducto = nombreProducto;
+        this.producto = producto;
         this.cantidad = cantidad;
         this.precio = precio;
-        this.total = cantidad * precio;
+        this.total = precio * cantidad;
         this.fecha = fecha;
         this.promocion = promocion;
-
     }
 
     public String getRegistroID() {
         return registroID;
     }
-    /*
-    public void setRegistroID(String registroID) {
-        this.registroID = registroID;
-    }
-    */
 
-    public String getNombreCliente() {
-        return nombreCliente;
+
+    public Integer getCliente() {
+        return cliente;
     }
 
-    public void setNombreCliente(String nombreCliente) {
-        this.nombreCliente = nombreCliente;
+    public void setCliente(Integer cliente) {
+        this.cliente = cliente;
     }
 
-    public String getProveedor() {
+    public Integer getProveedor() {
         return proveedor;
     }
 
-    public void setProveedor(String proveedor) {
+    public void setProveedor(Integer proveedor) {
         this.proveedor = proveedor;
     }
 
-    public String getNombreProducto() {
-        return nombreProducto;
+    public Integer getProducto() {
+        return producto;
     }
 
-    public void setNombreProducto(String nombreProducto) {
-        this.nombreProducto = nombreProducto;
+    public void setProducto(Integer producto) {
+        this.producto = producto;
     }
 
     public Integer getCantidad() {
@@ -93,11 +88,11 @@ public class SaleRegister {
         this.fecha = fecha;
     }
 
-    public String getPromocion() {
+    public Float getPromocion() {
         return promocion;
     }
 
-    public void setPromocion(String promocion) {
+    public void setPromocion(Float promocion) {
         this.promocion = promocion;
     }
 }

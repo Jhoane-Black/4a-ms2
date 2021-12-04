@@ -15,79 +15,30 @@ public class SaleRegisterController {
     public SaleRegisterController(SaleRegisterRepository repository) {
         this.repository = repository;
     }
-
-    @GetMapping("/saleregistersc/{nombrecliente}") // convert the next method to an endpoint
-    List<SaleRegister> getSaleRegisterByCliente(@PathVariable String nombrecliente){
-        List<SaleRegister> saleRegister = repository.getByNombreCliente(nombrecliente);
-        int corroborate = 0;
-        int corroborated = 0;
-        for(SaleRegister i : saleRegister){
-            if(i.getNombreCliente().equals(nombrecliente)){
-                corroborate = 0;
-                corroborated = 1;
-            }
-            else{
-                if (corroborated == 0){
-                    corroborate = 1;
-                }
-            }
-        }
-        if (corroborate == 0){
-            return this.repository.getByNombreCliente(nombrecliente);
-        }
-        else{
-            throw new SaleRegisterNotFoundException("El cliente no existe");
-        }
+    @GetMapping("/saleregisterspv/{proveedor}") // convert the next method to an endpoint
+    List<SaleRegister> getSaleRegisterByProveedor(@PathVariable Integer proveedor){
+        return this.repository.getByProveedor(proveedor);
     }
-    @GetMapping("/saleregistersp/{nombreproducto}") // convert the next method to an endpoint
-    List<SaleRegister> getSaleRegisterByNombreProducto(@PathVariable String nombreproducto){
-        List<SaleRegister> saleRegister = repository.getByNombreProducto(nombreproducto);
-        int corroborate = 0;
-        int corroborated = 0;
-        for(SaleRegister i : saleRegister){
-            if(i.getNombreProducto().equals(nombreproducto)){
-                corroborate = 0;
-                corroborated = 1;
-            }
-            else{
-                if (corroborated == 0){
-                    corroborate = 1;
-                }
-            }
-        }
-        if (corroborate == 0){
-            return this.repository.getByNombreProducto(nombreproducto);
-        }
-        else{
-            throw new SaleRegisterNotFoundException("El producto no existe");
-        }
+    @GetMapping("/saleregistersc/{cliente}") // convert the next method to an endpoint
+    List<SaleRegister> getSaleRegisterByCliente(@PathVariable Integer cliente){
+        return this.repository.getByCliente(cliente);
     }
-    @GetMapping("/saleregisterscp/{nombrecliente}/{nombreproducto}") // convert the next method to an endpoint
-    List<SaleRegister> getSaleRegisterByNombreProductoAndNombreClienteAndProveedor( @PathVariable String nombrecliente,@PathVariable String nombreproducto){
-        return this.repository.getByNombreProductoAndNombreCliente(nombreproducto,nombrecliente);
+    @GetMapping("/saleregistersp/{producto}") // convert the next method to an endpoint
+    List<SaleRegister> getSaleRegisterByProducto(@PathVariable Integer producto){
+        return this.repository.getByProducto(producto);
     }
-    /*
-    @GetMapping("/saleregistersc/{proveedor}/{nombrecliente}") // convert the next method to an endpoint
-    List<SaleRegister> getSaleRegisterByProveedorAndCliente(@PathVariable String proveedor, @PathVariable String nombrecliente){
-        return this.repository.getByProveedorAndNombreCliente(proveedor, nombrecliente);
+    @GetMapping("/saleregisterscp/{cliente}/{producto}") // convert the next method to an endpoint
+    List<SaleRegister> getSaleRegisterByProductoAndCliente( @PathVariable Integer cliente,@PathVariable Integer producto){
+        return this.repository.getByProductoAndCliente(producto,cliente);
     }
-    @GetMapping("/saleregistersp/{proveedor}/{nombreproducto}") // convert the next method to an endpoint
-    List<SaleRegister> getSaleRegisterByProveedorAndProducto(@PathVariable String proveedor, @PathVariable String nombreproducto){
-        return this.repository.getByProveedorAndNombreProducto(proveedor, nombreproducto);
-    }
-    @GetMapping("/saleregisterscp/{proveedor}/{nombrecliente}/{nombreproducto}") // convert the next method to an endpoint
-    List<SaleRegister> getSaleRegisterByNombreProductoAndNombreClienteAndProveedor(@PathVariable String proveedor, @PathVariable String nombrecliente,@PathVariable String nombreproducto){
-        return this.repository.getByNombreProductoAndNombreClienteAndProveedor(nombreproducto,nombrecliente,proveedor);
-    }
-    */
     @PostMapping("/saleregister")
     SaleRegister newSaleRegister(@RequestBody SaleRegister saleregisters){
         return this.repository.save(saleregisters);
     }
 
-    @DeleteMapping("/saleregister/{proveedor}/{registroID}")
-    public void deleteSaleRegister(@PathVariable String proveedor, @PathVariable String registroID){
-        repository.deleteByProveedorAndRegistroID(proveedor, registroID);
+    @DeleteMapping("/saleregister/{registroID}")
+    public void deleteSaleRegister( @PathVariable String registroID){
+        repository.deleteByRegistroID(registroID);
     }
     /*
     @PutMapping("/saleRegister/{registroID}")
