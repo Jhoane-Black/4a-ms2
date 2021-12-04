@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface SaleRegisterRepository extends MongoRepository<SaleRegister, String> {
     List<SaleRegister> getByNombreCliente(String nombreCliente);
+    List<SaleRegister> getByNombreProducto(String nombreProducto);
+    List<SaleRegister> getByNombreProductoAndNombreCliente(String nombreProducto,String nombreCliente);
     List<SaleRegister> getByProveedorAndNombreCliente(String proveedor, String nombreCliente);
     List<SaleRegister> getByProveedorAndNombreProducto(String proveedor, String nombreProducto);
     List<SaleRegister> getByNombreProductoAndNombreClienteAndProveedor(String nombreProducto,String nombreCliente,String proveedor);
