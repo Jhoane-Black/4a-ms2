@@ -1,18 +1,24 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import App from './src/App.vue'
-/*import Carrito from './src/components/carrito.vue'*/
-/*import Index from './src/components/index.vue'*/
+import App from './App.vue'
+import LogIn from './components/login_signup.vue'
+import Carrito from './components/carrito.vue'
+/*import Index from './components/index.vue'*/
 const routes = [
   {
     path: '/',
     name: 'root',
     component: App
   },
-/*{
+  {
+    path: '/logIn',
+    name: 'logIn',
+    component: LogIn
+  },
+  {
     path: '/carrito',
     name: 'carrito',
     component: Carrito
-  },*/
+  }, 
   /*{
     path: '/index',
     name: 'index',

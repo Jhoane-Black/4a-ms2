@@ -5,19 +5,21 @@
 
             <div class="signin-signup">
 
-                <form action="index.html" class="sign-in-form">
+                <form v-on:submit.prevent="processLogIn" class="sign-in-form">
 
                     <h2 class="title">Iniciar Sesión</h2>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="text" placeholder="Correo Electrónico">
+                        <input v-model="credentials.username" type="text" placeholder="Username">
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Contraseña">
+                        <input v-model="credentials.password" type="password" placeholder="Contraseña">
                     </div>
 
-                    <input type="submit" value="Ingresar" class="btn solid">
+                    <p v-if="show_error" class="error">Usuario o contraseña incorrectos</p> 
+
+                    <input v-bind:class="{'disabled': is_loading}" type="submit" value="Ingresar" class="btn solid">
                     <p class="social-text">O ingresa a nuestras redes sociales</p>
 
                     <div class="social-media">
@@ -78,7 +80,7 @@
 
                     <h3>¿Eres nuevo por aquí?</h3>
                     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iste sapiente odio atque quas quos. </p>
-                    <button class="btn transparent" id="sign-up-btn">
+                    <button v-on:click="signUpMode" class="btn transparent" id="sign-up-btn">
                         Registrarse
                     </button>
 
@@ -104,7 +106,84 @@
     </div>
 </template>
 <script>
+import gql from "graphql-tag";
 
+export default {
+    name: "App", // Nombre del componente
+
+    data: function() {
+      return { 
+          is_auth: false,
+          show_error: false,
+          is_loading: false,
+          credentials: {
+              username: "",
+              password: ""
+        }
+       }
+    }, // Todas las variables de este componentes
+
+    methods: {
+      verifyAuth(){
+        this.is_auth = localStorage.getItem("is_auth") || false;
+        if(this.is_auth){
+          this.loadCarrito();
+        }else{
+          //this.loadLogIn();
+        }
+      },  
+      completedLogin(data){
+        this.is_auth = true;
+        localStorage.setItem("is_auth", true);
+        localStorage.setItem("token", data.token);
+        localStorage.setItem("username", data.username);
+        console.log(`token: ${localStorage.getItem("token")}`);
+        this.verifyAuth()
+      },
+      signUpMode(){
+        this.classList.add("sign-up-mode");
+      },
+      loadCarrito(){
+        console.log("Estoy en LoadCarrito");
+        this.$router.push({name: 'carrito'});
+      },
+      processLogIn: async function (){
+            this.is_loading = true;
+            await this.$apollo.mutate({
+                mutation: gql`
+                    mutation Login($credentials: LoginInput!) {
+                        login(credentials: $credentials) {
+                            key
+                        }
+                    }
+                `,
+                variables: {
+                    credentials: this.credentials
+                }
+            })
+            .then((result) => {
+                console.log("FUNCIONÓOOO")
+                this.is_loading = false;
+                this.show_error = false;
+                let data = {
+                    username: this.credentials.username,
+                    token: result.data.login.key
+                }
+                this.completedLogin(data);
+            })
+            .catch((error)=>{
+                this.show_error = true;
+                console.log("DIO ERROR :c")
+                console.log(error)
+                this.is_loading = false;
+            })
+        }
+    }, // Todas las funciones que usa este componente
+    
+    created: function () {
+
+    } // Eventos: lo que pasa cuando el componente se inicia
+};
 </script>
 
 <style>
@@ -375,6 +454,16 @@ form.sign-in-form {
     font-weight: 600;
     font-size: .8rem;
 
+}
+
+.error{
+    color: red;
+    font-size: 15px;
+}
+
+.disabled{
+    pointer-events: none;
+    opacity: 0.6;
 }
 
 .right-panel .image,
