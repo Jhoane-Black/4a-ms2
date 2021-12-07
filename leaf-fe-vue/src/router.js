@@ -1,7 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import App from './App.vue'
-/*import Carrito from './components/carrito.vue'*/
-/*import Index from './components/index.vue'*/
+import App from './src/App.vue'
+/*import Carrito from './src/components/carrito.vue'*/
+/*import Index from './src/components/index.vue'*/
 const routes = [
   {
     path: '/',
