@@ -45,7 +45,7 @@
 
                 </div>
 
-                <img src="..\assets\log_user.svg" alt="Login User" class="image">
+                <img src="../assets/images/log_user.svg" alt="Login User" class="image">
 
             </div>
 

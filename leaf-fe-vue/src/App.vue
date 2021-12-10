@@ -62,5 +62,10 @@ export default {
 </script>
 
 <style>
-
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins';
+  background: #fafafa;
+}
 </style>

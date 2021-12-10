@@ -1,5 +1,5 @@
 <template>
-<header class="header shadow" id="header">
+  <header class="header shadow" id="header">
             
             <nav class="nav container">
 
@@ -49,717 +49,709 @@
                     
             </nav>
 
-        </header> 
+  </header> 
 
-        <main class="main">
-            <!--==================== HOME ====================-->
-            <section class="home" id="homeNav">
-                
-                <div class="home__container container grid">
+  <main class="main">
+      <!--==================== HOME ====================-->
+      <section class="home" id="homeNav">
+          
+          <div class="home__container container grid">
 
-                    <img
-                      class="home__img"
-                      v-bind:src="require('../assets/home.png')"
-                      alt="Home Img"
-                    />
+              <img
+                class="home__img" src="../assets/images/home.png"
+                alt="Home Img"
+              />
 
-                    <div class="home__data">
+              <div class="home__data">
 
-                        <h1 class="home__title">
-                            Las Plantas te harán <br> tener una vida mejor.
-                        </h1>
+                  <h1 class="home__title">
+                      Las Plantas te harán <br> tener una vida mejor.
+                  </h1>
 
-                        <p class="home__description">
-                            Dale un diseño inverosímil a tus oficinas y <br> departamentos con increibles plantas. <br>
-                            Añadele frescura a tu ambiente laboral.
-                        </p>
+                  <p class="home__description">
+                      Dale un diseño inverosímil a tus oficinas y <br> departamentos con increibles plantas. <br>
+                      Añadele frescura a tu ambiente laboral.
+                  </p>
 
-                        <a href="#about" class="btn btn-flex">
-                            Conoce más <i class="ri-arrow-right-down-line btn__icon"></i>
-                        </a>
-                    </div>
+                  <a href="#about" class="btn btn-flex">
+                      Conoce más <i class="ri-arrow-right-down-line btn__icon"></i>
+                  </a>
+              </div>
 
-                    <div class="home__social">
+              <div class="home__social">
 
-                        <span class="home__social-follow">Síguenos</span>
+                  <span class="home__social-follow">Síguenos</span>
 
-                        <div class="home__social-links">
+                  <div class="home__social-links">
 
-                            <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
-                                <i class="ri-facebook-fill"></i>
-                            </a>
+                      <a href="https://www.facebook.com/" target="_blank" class="home__social-link">
+                          <i class="ri-facebook-fill"></i>
+                      </a>
 
-                            <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
-                                <i class="ri-instagram-fill"></i>
-                            </a>
+                      <a href="https://www.instagram.com/" target="_blank" class="home__social-link">
+                          <i class="ri-instagram-fill"></i>
+                      </a>
 
-                            <a href="https://twitter.com/" target="_blank" class="home__social-link">
-                                <i class="ri-twitter-fill"></i>
-                            </a>
+                      <a href="https://twitter.com/" target="_blank" class="home__social-link">
+                          <i class="ri-twitter-fill"></i>
+                      </a>
 
-                            <a href="https://www.linkedin.com/" target="_blank" class="home__social-link">
-                                <i class="ri-linkedin-fill"></i>
-                            </a>
+                      <a href="https://www.linkedin.com/" target="_blank" class="home__social-link">
+                          <i class="ri-linkedin-fill"></i>
+                      </a>
 
-                        </div>
+                  </div>
 
-                    </div>
+              </div>
 
-                </div>
+          </div>
 
-            </section>
+      </section>
 
-            <!--==================== ABOUT ====================-->
-            <section class="about section container" id="about">
-                
-                <div class="about__container grid">
+      <!--==================== ABOUT ====================-->
+      <section class="about section container" id="about">
+          
+          <div class="about__container grid">
 
-                    <img
-                      class="about__img"
-                      v-bind:src="require('../assets/about.png')"
-                      alt="About Img"
-                    />
+              <img
+                class="about__img" src="../assets/images/about.png"
+                alt="About Img"
+              />
 
-                    <div class="about__data">
+              <div class="about__data">
 
-                        <h2 class="about__title section__title">
-                            ¿Quiénes somos realmente? & <br> ¿Por qué escogernos?
-                        </h2>
+                  <h2 class="about__title section__title">
+                      ¿Quiénes somos realmente? & <br> ¿Por qué escogernos?
+                  </h2>
 
-                        <p class="about__description">
-                            Tenemos más de 4000 opiniones imparciales y nuestros clientes 
-                            confían en nuestro sistema de producción y en nuestro servicio de entrega.
-                        </p>
+                  <p class="about__description">
+                      Tenemos más de 4000 opiniones imparciales y nuestros clientes 
+                      confían en nuestro sistema de producción y en nuestro servicio de entrega.
+                  </p>
 
-                        <div class="about__details">
+                  <div class="about__details">
 
-                            <p class="about__details-description">
-                                <i class="ri-checkbox-fill about__details-icon"></i>
-                                Siempre entregamos a tiempo.
-                            </p>
+                      <p class="about__details-description">
+                          <i class="ri-checkbox-fill about__details-icon"></i>
+                          Siempre entregamos a tiempo.
+                      </p>
 
-                            <p class="about__details-description">
-                                <i class="ri-checkbox-fill about__details-icon"></i>
-                                Te damos guías para proteger y cuidar tus plantas.
-                            </p>
+                      <p class="about__details-description">
+                          <i class="ri-checkbox-fill about__details-icon"></i>
+                          Te damos guías para proteger y cuidar tus plantas.
+                      </p>
 
-                            <p class="about__details-description">
-                                <i class="ri-checkbox-fill about__details-icon"></i>
-                                Siempre volvemos para una revisión luego de la venta.
-                            </p>
-                            <p class="about__details-description">
-                                <i class="ri-checkbox-fill about__details-icon"></i>
-                                Garantizamos 100% de devolución de dinero.
-                            </p>
+                      <p class="about__details-description">
+                          <i class="ri-checkbox-fill about__details-icon"></i>
+                          Siempre volvemos para una revisión luego de la venta.
+                      </p>
+                      <p class="about__details-description">
+                          <i class="ri-checkbox-fill about__details-icon"></i>
+                          Garantizamos 100% de devolución de dinero.
+                      </p>
 
-                        </div>
+                  </div>
 
-                        <a href="#" class="btn-link btn-flex">
-                            Ordena Ahora! <i class="ri-arrow-right-down-line btn__icon"></i>
-                        </a>
+                  <a href="#" class="btn-link btn-flex">
+                      Ordena Ahora! <i class="ri-arrow-right-down-line btn__icon"></i>
+                  </a>
 
-                    </div>
+              </div>
 
-                </div>
+          </div>
 
-            </section>
+      </section>
 
-            <!--================= PASO A PASO =================-->
-<!--             <section class="steps section container">
-                
-                <div class="steps__bg">
+      <!--================= PASO A PASO =================-->
+      <section class="steps section container">
+          
+          <div class="steps__bg">
 
-                    <h2 class="section__title-center steps__title">
-                        Pasos para que tus plantas <br> se desarrollen correctamente.
-                    </h2>
+              <h2 class="section__title-center steps__title">
+                  Pasos para que tus plantas <br> se desarrollen correctamente.
+              </h2>
 
-                    <div class="steps__container grid">
+              <div class="steps__container grid">
 
-                        <div class="steps__card">
+                  <div class="steps__card">
 
-                            <div class="steps__card-number">01</div>
-                            <h3 class="steps__card-title">
-                                Escoge una Planta
-                            </h3>
-                            <p class="steps__card-description">
-                                Tenemos muchas variedades de plantas que puedes elegir.
-                            </p>
+                      <div class="steps__card-number">01</div>
+                      <h3 class="steps__card-title">
+                          Escoge una Planta
+                      </h3>
+                      <p class="steps__card-description">
+                          Tenemos muchas variedades de plantas que puedes elegir.
+                      </p>
 
-                        </div>
+                  </div>
 
-                        <div class="steps__card">
+                  <div class="steps__card">
 
-                            <div class="steps__card-number">02</div>
-                            <h3 class="steps__card-title">
-                                Realiza un pedido.
-                            </h3>
-                            <p class="steps__card-description">
-                                Una vez hayas ordenado, pasemos al siguiente paso que es el envío.
-                            </p>
+                      <div class="steps__card-number">02</div>
+                      <h3 class="steps__card-title">
+                          Realiza un pedido.
+                      </h3>
+                      <p class="steps__card-description">
+                          Una vez hayas ordenado, pasemos al siguiente paso que es el envío.
+                      </p>
 
-                        </div>
-              
-                        <div class="steps__card">
+                  </div>
+        
+                  <div class="steps__card">
 
-                            <div class="steps__card-number">03</div>
-                            <h3 class="steps__card-title">
-                                Recibe las plantas a tu domicilio.
-                            </h3>
-                            <p class="steps__card-description">
-                                Nuestro proceso de entrega es simple, recibes la planta directamente a tu puerta.
-                            </p>
+                      <div class="steps__card-number">03</div>
+                      <h3 class="steps__card-title">
+                          Recibe las plantas a tu domicilio.
+                      </h3>
+                      <p class="steps__card-description">
+                          Nuestro proceso de entrega es simple, recibes la planta directamente a tu puerta.
+                      </p>
 
-                        </div>
+                  </div>
 
-                    </div>
-                </div>
-            </section> -->
+              </div>
+          </div>
+      </section> 
 
-            <!--==================== PRODUCTOS ====================-->
-            <section class="product section container" id="products">
-                
-                <h2 class="section__title-center">
-                    Chequea nuestros <br> productos
-                </h2>
+      <!--==================== PRODUCTOS ====================-->
+      <section class="product section container" id="products">
+          
+          <h2 class="section__title-center">
+              Chequea nuestros <br> productos
+          </h2>
 
-                <p class="product__description">
-                    Aquí tienes algunos de nuestras plantas seleccionadas de nuestro repertorio
-                    y todas están en un buen estado y tiene una vida larga útil. Compra y disfruta de la mejor calidad.
-                </p>
+          <p class="product__description">
+              Aquí tienes algunos de nuestras plantas seleccionadas de nuestro repertorio
+              y todas están en un buen estado y tiene una vida larga útil. Compra y disfruta de la mejor calidad.
+          </p>
 
-                <div class="product__container grid">
+          <div class="product__container grid">
 
-                    <article class="product__card">
+              <article class="product__card">
 
-                        <div class="product__circle"></div>
+                  <div class="product__circle"></div>
 
-                        <img
-                          class="product__img"
-                          v-bind:src="require('../assets/product1.png')"
-                          alt="Producto 1"
-                        />
+                  <img
+                    class="product__img" src="../assets/images/product1.png"
+                    alt="Producto 1"
+                  />
 
-                        <h3 class="product__title">Planta Cactácea</h3>
-                        <span class="product__precio">$50,000</span>
+                  <h3 class="product__title">Planta Cactácea</h3>
+                  <span class="product__precio">$50,000</span>
 
-                        <button class="btn-product btn-flex">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
+                  <button class="btn-product btn-flex">
+                      <i class="ri-shopping-bag-line"></i>
+                  </button>
 
-                    </article>
+              </article>
 
-                    <article class="product__card">
+              <article class="product__card">
 
-                        <div class="product__circle"></div>
+                  <div class="product__circle"></div>
 
-                        <img
-                          class="product__img"
-                          v-bind:src="require('../assets/product2.png')"
-                          alt="Producto 2"
-                        />
+                  <img
+                    class="product__img" src="../assets/images/product2.png"
+                    alt="Producto 2"
+                  />
 
-                        <h3 class="product__title">Planta Cactus</h3>
-                        <span class="product__precio">$60,000</span>
+                  <h3 class="product__title">Planta Cactus</h3>
+                  <span class="product__precio">$60,000</span>
 
-                        <button class="btn-product btn-flex">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
+                  <button class="btn-product btn-flex">
+                      <i class="ri-shopping-bag-line"></i>
+                  </button>
 
-                    </article>
+              </article>
 
-                    <article class="product__card">
+              <article class="product__card">
 
-                        <div class="product__circle"></div>
+                  <div class="product__circle"></div>
 
-                        <img
-                          class="product__img"
-                          v-bind:src="require('../assets/product3.png')"
-                          alt="Producto 3"
-                        />
+                  <img
+                    class="product__img" src="../assets/images/product3.png"
+                    alt="Producto 3"
+                  />
 
-                        <h3 class="product__title">Planta Aloe Vera</h3>
-                        <span class="product__precio">$77,000</span>
+                  <h3 class="product__title">Planta Aloe Vera</h3>
+                  <span class="product__precio">$77,000</span>
 
-                        <button class="btn-product btn-flex">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
+                  <button class="btn-product btn-flex">
+                      <i class="ri-shopping-bag-line"></i>
+                  </button>
 
-                    </article>
+              </article>
 
-                    <article class="product__card">
+              <article class="product__card">
 
-                        <div class="product__circle"></div>
+                  <div class="product__circle"></div>
 
-                        <img
-                          class="product__img"
-                          v-bind:src="require('../assets/product4.png')"
-                          alt="Producto 4"
-                        />
+                  <img
+                    class="product__img" src="../assets/images/product4.png"
+                    alt="Producto 4"
+                  />
 
-                        <h3 class="product__title">Planta Suculenta</h3>
-                        <span class="product__precio">$90,000</span>
+                  <h3 class="product__title">Planta Suculenta</h3>
+                  <span class="product__precio">$90,000</span>
 
-                        <button class="btn-product btn-flex">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
+                  <button class="btn-product btn-flex">
+                      <i class="ri-shopping-bag-line"></i>
+                  </button>
 
-                    </article>
+              </article>
 
-                    <article class="product__card">
+              <article class="product__card">
 
-                        <div class="product__circle"></div>
+                  <div class="product__circle"></div>
 
-                        <img
-                          class="product__img"
-                          v-bind:src="require('../assets/product5.png')"
-                          alt="Producto 5"
-                        />
+                  <img
+                    class="product__img" src="../assets/images/product5.png"
+                    alt="Producto 5"
+                  />
 
-                        <h3 class="product__title">Planta Dracaena</h3>
-                        <span class="product__precio">$23,000</span>
+                  <h3 class="product__title">Planta Dracaena</h3>
+                  <span class="product__precio">$23,000</span>
 
-                        <button class="btn-product btn-flex">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
+                  <button class="btn-product btn-flex">
+                      <i class="ri-shopping-bag-line"></i>
+                  </button>
 
-                    </article>
+              </article>
 
-                    <article class="product__card">
+              <article class="product__card">
 
-                        <div class="product__circle"></div>
+                  <div class="product__circle"></div>
 
-                        <img
-                          class="product__img"
-                          v-bind:src="require('../assets/product6.png')"
-                          alt="Producto 6"
-                        />
-                        
-                        <h3 class="product__title">Planta de Menta</h3>
-                        <span class="product__precio">$30,000</span>
+                  <img
+                    class="product__img" src="../assets/images/product6.png"
+                    alt="Producto 6"
+                  />
+                  
+                  <h3 class="product__title">Planta de Menta</h3>
+                  <span class="product__precio">$30,000</span>
 
-                        <button class="btn-product btn-flex">
-                            <i class="ri-shopping-bag-line"></i>
-                        </button>
+                  <button class="btn-product btn-flex">
+                      <i class="ri-shopping-bag-line"></i>
+                  </button>
 
-                    </article>
+              </article>
 
-                </div>
+          </div>
 
-            </section>
+      </section>
 
-            <!--==================== FAQS ====================-->
-            <!-- <section class="questions section" id="faqs">
-                
-                <h2 class="section__title-center questions__title container">
+      <!--==================== FAQS ====================-->
+      <section class="questions section" id="faqs">
+          
+          <h2 class="section__title-center questions__title container">
 
-                    Estas son algunas de las <br> preguntas mas comunes
+              Estas son algunas de las <br> preguntas mas comunes
 
-                </h2>
+          </h2>
 
-                <div class="questions__container container grid">
+          <div class="questions__container container grid">
 
-                    <div class="questions__group">
+              <div class="questions__group">
 
-                        <div class="questions__item">
+                  <div class="questions__item">
 
-                            <header class="questions__header">
+                      <header class="questions__header">
 
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
+                          <i class="ri-add-line questions__icon"></i>
+                          <h3 class="questions__item-title">
 
-                                    ¿Mis flores se marchitan o se mueren?
+                              ¿Mis flores se marchitan o se mueren?
 
-                                </h3>
+                          </h3>
 
-                            </header>
+                      </header>
 
-                            <div class="questions__content">
+                      <div class="questions__content">
 
-                                <p class="questions__description">
+                          <p class="questions__description">
 
-                                    Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
-                                    pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
+                              Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
+                              pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
 
-                                </p>
+                          </p>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                        <div class="questions__item">
+                  <div class="questions__item">
 
-                            <header class="questions__header">
+                      <header class="questions__header">
 
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
+                          <i class="ri-add-line questions__icon"></i>
+                          <h3 class="questions__item-title">
 
-                                    ¿Qué hace que las hojas se vuelvan pálidas?
+                              ¿Qué hace que las hojas se vuelvan pálidas?
 
-                                </h3>
+                          </h3>
 
-                            </header>
+                      </header>
 
-                            <div class="questions__content">
+                      <div class="questions__content">
 
-                                <p class="questions__description">
+                          <p class="questions__description">
 
-                                    Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
-                                    pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
+                              Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
+                              pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
 
-                                </p>
+                          </p>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                        <div class="questions__item">
+                  <div class="questions__item">
 
-                            <header class="questions__header">
+                      <header class="questions__header">
 
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
+                          <i class="ri-add-line questions__icon"></i>
+                          <h3 class="questions__item-title">
 
-                                    ¿Por qué las hojas se ponen marrones y quebradizas?
-                                
-                                </h3>
+                              ¿Por qué las hojas se ponen marrones y quebradizas?
+                          
+                          </h3>
 
-                            </header>
+                      </header>
 
-                            <div class="questions__content">
+                      <div class="questions__content">
 
-                                <p class="questions__description">
+                          <p class="questions__description">
 
-                                    Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
-                                    pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
+                              Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
+                              pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
 
-                                </p>
+                          </p>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                    </div>
+              </div>
 
-                    <div class="questions__group">
+              <div class="questions__group">
 
-                        <div class="questions__item">
+                  <div class="questions__item">
 
-                            <header class="questions__header">
+                      <header class="questions__header">
 
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
+                          <i class="ri-add-line questions__icon"></i>
+                          <h3 class="questions__item-title">
 
-                                    ¿Cómo elegir la planta adecuada?
+                              ¿Cómo elegir la planta adecuada?
 
-                                </h3>
+                          </h3>
 
-                            </header>
+                      </header>
 
-                            <div class="questions__content">
+                      <div class="questions__content">
 
-                                <p class="questions__description">
+                          <p class="questions__description">
 
-                                    Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
-                                    pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
+                              Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
+                              pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
 
-                                </p>
+                          </p>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                        <div class="questions__item">
+                  <div class="questions__item">
 
-                            <header class="questions__header">
+                      <header class="questions__header">
 
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
+                          <i class="ri-add-line questions__icon"></i>
+                          <h3 class="questions__item-title">
 
-                                    ¿Cómo se cambian las macetas de una planta?
+                              ¿Cómo se cambian las macetas de una planta?
 
-                                </h3>
+                          </h3>
 
-                            </header>
+                      </header>
 
-                            <div class="questions__content">
+                      <div class="questions__content">
 
-                                <p class="questions__description">
+                          <p class="questions__description">
 
-                                    Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
-                                    pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
+                              Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
+                              pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
 
-                                </p>
+                          </p>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                        <div class="questions__item">
+                  <div class="questions__item">
 
-                            <header class="questions__header">
+                      <header class="questions__header">
 
-                                <i class="ri-add-line questions__icon"></i>
-                                <h3 class="questions__item-title">
+                          <i class="ri-add-line questions__icon"></i>
+                          <h3 class="questions__item-title">
 
-                                    ¿Por qué los mosquitos vuelan alrededor de mi planta?
+                              ¿Por qué los mosquitos vuelan alrededor de mi planta?
 
-                                </h3>
+                          </h3>
 
-                            </header>
+                      </header>
 
-                            <div class="questions__content">
+                      <div class="questions__content">
 
-                                <p class="questions__description">
+                          <p class="questions__description">
 
-                                    Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
-                                    pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
+                              Las plantas proveen una manera para suministrar energía a los colores y transformar su espacio, 
+                              pero ¿Qué planta es adecuada para ti?. Elige la planta adecuada.
 
-                                </p>
+                          </p>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                    </div>
+              </div>
 
-                </div>
+          </div>
 
-            </section> -->
+      </section>
 
-            <!--=================== CONTACTOS ===================-->
-            <!-- <section class="contact section container" id="contact">                
-                
-                 <div class="contact__container grid">
+      <!--=================== CONTACTOS ===================-->
+      <section class="contact section container" id="contact">                
+          
+            <div class="contact__container grid">
 
-                    <div class="contact__box">
+              <div class="contact__box">
 
-                        <h2 class="section__title">
+                  <h2 class="section__title">
 
-                            Póngase en contacto con nosotros hoy <br> mismo a través de las siguientes formas.
+                      Póngase en contacto con nosotros hoy <br> mismo a través de las siguientes formas.
 
-                        </h2>
+                  </h2>
 
-                        <div class="contact__data">
+                  <div class="contact__data">
 
-                            <div class="contact__info">
+                      <div class="contact__info">
 
-                                <h3 class="contact__subtitle">
+                          <h3 class="contact__subtitle">
 
-                                    Llámanos para una asistencia inmediata.
+                              Llámanos para una asistencia inmediata.
 
-                                </h3>
+                          </h3>
 
-                                <span class= "contact__description">
+                          <span class= "contact__description">
 
-                                    <i class= "ri-phone-line contact__icon"></i>
+                              <i class= "ri-phone-line contact__icon"></i>
 
-                                        +57 312-345-6789
+                                  +57 312-345-6789
 
-                                    
+                              
 
-                                </span>
+                          </span>
 
-                            </div>
+                      </div>
 
-                            <div class="contact__info">
+                      <div class="contact__info">
 
-                                <h3 class="contact__subtitle">
+                          <h3 class="contact__subtitle">
 
-                                    Escríbenos por correo electrónico
+                              Escríbenos por correo electrónico
 
-                                </h3>
+                          </h3>
 
-                                <span class="contact__description">
+                          <span class="contact__description">
 
-                                    <i class="ri-mail-line contact__icon"></i>
+                              <i class="ri-mail-line contact__icon"></i>
 
-                                        centrodeayuda@leafx.com
+                                  centrodeayuda@leafx.com
 
-                                    
+                              
 
-                                </span>
+                          </span>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                    </div>
+              </div>
 
-                    <form action="" class="contact__form">
+              <form action="" class="contact__form">
 
-                        <div class="contact__inputs">
+                  <div class="contact__inputs">
 
-                            <div class="contact__content">
+                      <div class="contact__content">
 
-                                <input placeholder=" " type="email" name="email" 
-                                id="email" class="contact__input">
-                                <label for="email" class="contact__label">Email</label>
+                          <input placeholder=" " type="email" name="email" 
+                          id="email" class="contact__input">
+                          <label for="email" class="contact__label">Email</label>
 
-                            </div>
+                      </div>
 
-                            <div class="contact__content">
+                      <div class="contact__content">
 
-                                <input placeholder=" " type="text" name="asunto" 
-                                id="asunto" class="contact__input">
-                                <label for="asunto" class="contact__label">Asunto</label>
+                          <input placeholder=" " type="text" name="asunto" 
+                          id="asunto" class="contact__input">
+                          <label for="asunto" class="contact__label">Asunto</label>
 
-                            </div>
+                      </div>
 
-                            <div class="contact__content contact__area">
+                      <div class="contact__content contact__area">
 
-                                <textarea name="mensaje" id="mensaje"
-                                placeholder=" " class="contact__input"></textarea>
-                                <label for="mensaje" class="contact__label">Mensaje</label>
+                          <textarea name="mensaje" id="mensaje"
+                          placeholder=" " class="contact__input"></textarea>
+                          <label for="mensaje" class="contact__label">Mensaje</label>
 
-                            </div>
+                      </div>
 
-                        </div>
+                  </div>
 
-                        <button class="btn btn-flex">
+                  <button class="btn btn-flex">
 
-                            Enviar Mensaje
-                            <i class="ri-arrow-right-up-line btn__icon"></i>
+                      Enviar Mensaje
+                      <i class="ri-arrow-right-up-line btn__icon"></i>
 
-                        </button>
+                  </button>
 
-                    </form>
-
-                 </div>
-
-            </section> -->
-
-            <!--==================== EXTRA INFORMACIÓN ====================-->
-            <section class="extra section" id="extras">
-
-                <div class="extra__container container grid">
-
-                    <div class="extra__content">
-
-                        <a href="#" class="extra__logo">
-
-                            <i class="ri-leaf-line extra__logo-icon"></i> Leaf
-
-                        </a>
-
-                        <h3 class="extra__title">
-
-                            Suscribete a nuestro newsletter <br> para estar al día
-
-                        </h3>
-
-                        <div class="extra__subscribe">
-
-                            <input type="email" name="email" id="email" 
-                            placeholder="Ingresa tu Email" class="extra__input">
-
-                            <button class="btn btn-flex btn-extra">
-
-                                Suscribirse
-                                <i class="ri-arrow-right-up-line btn__icon"></i>
-                            
-                            </button>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="extra__content">
-
-                        <h3 class="extra__title">Contáctanos</h3>
-
-                        <ul class="extra__data">
-
-                            <li class="extra__info">+57 312-345-6789</li>
-
-                            <div class="extra__social">
-
-                                <a href="https://www.facebook.com/" class="extra__social-link">
-                                    <i class="ri-facebook-fill extra__social-icon"></i>
-                                </a>
-                                <a href="https://www.instagram.com/" class="extra__social-link">
-                                    <i class="ri-instagram-fill extra__social-icon"></i>
-                                </a>
-                                <a href="https://twitter.com/" class="extra__social-link">
-                                    <i class="ri-twitter-fill extra__social-icon"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/feed/" class="extra__social-link">
-                                    <i class="ri-linkedin-fill extra__social-icon"></i>
-                                </a>
-
-                            </div>
-
-                        </ul>
-
-                    </div>
-
-                </div>
-
-                <!-- <p class="extra__copy">
-
-                    &#169; P52 - G4. Todos los Derechos Reservados.
-
-                </p> -->
-
-            </section>
-
-        </main>
-
-        <!--==================== FOOTER ====================-->
-        <footer class="footer section">
- 
-            <div class="waves">
-
-                <div class="wave" id="wave1"></div>
-                <div class="wave" id="wave2"></div>
-                <div class="wave" id="wave3"></div>
-                <div class="wave" id="wave4"></div>
+              </form>
 
             </div>
 
-           <ul class="social_icon">
-               <li>
-                   <a href="https://www.facebook.com/">
-                       <ion-icon name="logo-facebook"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                   <a href="https://www.instagram.com/">
-                       <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                </li>
-                <li>
-                    <a href="https://twitter.com/">
-                        <ion-icon name="logo-twitter"></ion-icon>
-                     </a>
-                 </li>
-                 <li>
-                    <a href="https://www.linkedin.com/">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                     </a>
-                 </li>
-           </ul>
+      </section>
 
-           <ul class="menu">
+      <!--==================== EXTRA INFORMACIÓN ====================-->
+      <section class="extra section" id="extras">
 
-            <li><a href="#index">Inicio</a></li>
-            <li><a href="#about">Acerca</a></li>
-            <li><a href="#products">Productos</a></li>
-            
+          <div class="extra__container container grid">
 
-           </ul>
+              <div class="extra__content">
 
-           <p>&copy; P52 - G4 | Todos los derechos reservados. 2021</p>
-            
-        </footer> 
+                  <a href="#" class="extra__logo">
 
-        <!--=============== SCROLL UP ===============-->
-        
-        <a href="#" class="scrollup" id="scroll-up">
+                      <i class="ri-leaf-line extra__logo-icon"></i> Leaf
 
-            <i class="ri-arrow-up-fill scrollup__icon"></i>
+                  </a>
 
-        </a>
+                  <h3 class="extra__title">
+
+                      Suscribete a nuestro newsletter <br> para estar al día
+
+                  </h3>
+
+                  <div class="extra__subscribe">
+
+                      <input type="email" name="email" id="email" 
+                      placeholder="Ingresa tu Email" class="extra__input">
+
+                      <button class="btn btn-flex btn-extra">
+
+                          Suscribirse
+                          <i class="ri-arrow-right-up-line btn__icon"></i>
+                      
+                      </button>
+
+                  </div>
+
+              </div>
+
+
+              <div class="extra__content">
+
+                  <h3 class="extra__title">Contáctanos</h3>
+
+                  <ul class="extra__data">
+
+                      <li class="extra__info">+57 312-345-6789</li>
+
+                      <div class="extra__social">
+
+                          <a href="https://www.facebook.com/" class="extra__social-link">
+                              <i class="ri-facebook-fill extra__social-icon"></i>
+                          </a>
+                          <a href="https://www.instagram.com/" class="extra__social-link">
+                              <i class="ri-instagram-fill extra__social-icon"></i>
+                          </a>
+                          <a href="https://twitter.com/" class="extra__social-link">
+                              <i class="ri-twitter-fill extra__social-icon"></i>
+                          </a>
+                          <a href="https://www.linkedin.com/feed/" class="extra__social-link">
+                              <i class="ri-linkedin-fill extra__social-icon"></i>
+                          </a>
+
+                      </div>
+
+                  </ul>
+
+              </div>
+
+          </div>
+
+          <!-- <p class="extra__copy">
+
+              &#169; P52 - G4. Todos los Derechos Reservados.
+
+          </p> -->
+
+      </section>
+
+  </main>
+
+  <!--==================== FOOTER ====================-->
+  <footer class="footer section">
+
+      <div class="waves">
+
+          <div class="wave" id="wave1"></div>
+          <div class="wave" id="wave2"></div>
+          <div class="wave" id="wave3"></div>
+          <div class="wave" id="wave4"></div>
+
+      </div>
+
+      <ul class="social_icon">
+          <li>
+              <a href="https://www.facebook.com/">
+                  <ion-icon name="logo-facebook"></ion-icon>
+              </a>
+          </li>
+          <li>
+              <a href="https://www.instagram.com/">
+                  <ion-icon name="logo-instagram"></ion-icon>
+              </a>
+          </li>
+          <li>
+              <a href="https://twitter.com/">
+                  <ion-icon name="logo-twitter"></ion-icon>
+                </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/">
+                  <ion-icon name="logo-linkedin"></ion-icon>
+                </a>
+            </li>
+      </ul>
+
+      <ul class="menu">
+
+      <li><a href="#index">Inicio</a></li>
+      <li><a href="#about">Acerca</a></li>
+      <li><a href="#products">Productos</a></li>
+      
+
+      </ul>
+
+      <p>&copy; P52 - G4 | Todos los derechos reservados. 2021</p>
+      
+  </footer> 
+
+  <!--=============== SCROLL UP ===============-->
+  
+  <!-- <a href="#" class="scrollup" id="scroll-up">
+
+      <i class="ri-arrow-up-fill scrollup__icon"></i>
+
+  </a> -->
 
         
 </template>
@@ -795,7 +787,6 @@ export default {
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
-
 /*=============== VARIABLES CSS ===============*/
 :root {
   --header-height: 3.5rem; /*56px*/
@@ -806,11 +797,11 @@ export default {
   --first-color: hsl(152, 24%, 32%); /* #3e6553 */
   --first-color-alt: hsl(152, 24%, 28%); /* #365949 */
   --first-color-light: hsl(152, 24%, 66%); /* #93bdaa */
-  --first-color-lighten: hsl(var(--hue), 24%, 92%);
-  --title-color: hsl(var(--hue), 4%, 15%);
-  --text-color: hsl(var(--hue), 4%, 35%);
+  --first-color-lighten: hsl(152, 24%, 92%);
+  --title-color: hsl(152, 4%, 15%);
+  --text-color: hsl(152, 4%, 35%);
   --text-color-light: hsl(152, 4%, 55%);
-  --body-color: hsl(var(--hue), 0%, 100%);
+  --body-color: hsl(152, 0%, 100%);
   --container-color: #FFF;
 
   /*========== Fuentes y Tipografias ==========*/
@@ -866,12 +857,14 @@ html{
   scroll-behavior: smooth; /* Agrega animación ligera al realizar un Scroll */
 }
 
-body,
+
+
+header, main
 button,
 input,
 textarea{
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
 }
 
 body{
@@ -882,7 +875,7 @@ body{
   /* background: #333; */
   margin: var(--header-height) 0 0 0;
   background-color: var(--body-color);
-  color: var(--text-color);
+  color: hsl(152, 4%, 35%);
   transition: .4s; /*Animar el Dark Mode*/
   /* https://developer.mozilla.org/en-US/docs/Web/CSS/transition */
 }
@@ -894,8 +887,8 @@ button{
 }
 
 h1,h2,h3{
-  color: var(--title-color);
-  font-weight: var(--font-semi-bold);
+  color: hsl(152, 4%, 15%);
+  font-weight: 600;
 }
 
 ul{
@@ -919,9 +912,9 @@ body.dark-theme {
   /*========== Colores ==========*/
   --hue: 152;
   --first-color-dark: hsl(152, 8%, 20%);
-  --title-color: hsl(var(--hue), 4%, 95%);
-  --text-color: hsl(var(--hue), 4%, 75%);
-  --body-color: hsl(var(--hue), 8%, 12%);
+  --title-color: hsl(152, 4%, 95%);
+  --text-color: hsl(152, 4%, 75%);
+  --body-color: hsl(152, 8%, 12%);
   --container-color: hsl(152, 8%, 16%);
 
 }
@@ -938,13 +931,13 @@ body.dark-theme {
 .dark-theme .product__circle,
 .dark-theme .extra__subscribe {
 
-  background-color: var(--container-color);
+  background-color: #fff;
 
 }
 
 .dark-theme .scroll-header {
   
-  box-shadow: 0 1px 4px hsla(var(--hue), 4%, 4%, 0.3);
+  box-shadow: 0 1px 4px hsla(152, 4%, 4%, 0.3);
 
 }
 
@@ -962,7 +955,7 @@ body.dark-theme {
 
 .dark-theme footer .menu li a {
 
-  color: var(--text-color);
+  color: hsl(152, 4%, 35%);
 
 }
 
@@ -974,7 +967,7 @@ body.dark-theme {
 
 .change-theme {
 
-  color: var(--text-color);
+  color: hsl(152, 4%, 35%);
   font-size: 1.15rem;
   cursor: pointer;
 
@@ -995,8 +988,8 @@ body.dark-theme {
 
 .section__title,
 .section__title-center{
-  font-size: var(--h2-font-size);
-  margin-bottom: var(--mb-2);
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
   line-height: 140%;
 }
 
@@ -1006,8 +999,8 @@ body.dark-theme {
 
 .container{
   max-width: 968px;
-  margin-left: var(--mb-1-5);
-  margin-right: var(--mb-1-5);
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
 }
 
 .grid{
@@ -1040,7 +1033,7 @@ body.dark-theme {
 
 .nav {
 
-  height: var(--header-height);
+  height: 3.5rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1051,7 +1044,7 @@ body.dark-theme {
 .nav__toggle,
 .nav__close {
 
-  color: var(--title-color);
+  color: #fff;
 
 }
 
@@ -1062,21 +1055,21 @@ body.dark-theme {
   letter-spacing: -1px;
   display: inline-flex;
   align-items: center;
-  column-gap: var(--mb-0-5);
+  column-gap: .5rem;
   transition: .3s;
 
 }
 
 .nav__logo:hover {
 
-  color: var(--first-color);
+  color: (152, 24%, 32%);
 
 }
 
 .nav__logo-icon {
 
   font-size: 1.15rem;
-  color: var(--first-color);
+  color: (152, 24%, 32%);
 
 }
 
@@ -1093,12 +1086,12 @@ body.dark-theme {
   .nav__menu {
 
     position: fixed;
-    background-color: var(--container-color);
+    background-color: #fff;
     top: 0;
     right: -100%;
     width: 80%;
     height: 100%;
-    box-shadow: -2px 0 4px hsla(var(--hue), 24%, 15%, .1);
+    box-shadow: -2px 0 4px hsla(152, 24%, 15%, .1);
     padding: 4rem 0 0 3rem;
     border-radius: 1rem 0 0 1rem;
     transition: .3s;
@@ -1119,7 +1112,7 @@ body.dark-theme {
   min-width: 590px;
   width: 600px;
   background-color: #262c29;
-  box-shadow: -2px 0 4px hsla(var(--hue), 24%, 15%, .1);
+  box-shadow: -2px 0 4px hsla(152, 24%, 15%, .1);
   top: 70px;
   right: 100px;
 
@@ -1172,7 +1165,7 @@ body.dark-theme {
 
   position: absolute;
   min-height: 10rem;
-  background-color: var(--container-color);
+  background-color: #fff;
   top: 0; right: 0;
   transition: all .3s ease-in-out;
   background: rgba(255, 255, 255, .5);
@@ -1183,12 +1176,12 @@ body.dark-theme {
 .nav__shop {
 
   position: fixed;
-  background-color: var(--container-color);
+  background-color: #fff;
   top: 0;
   right: -120%;
   width: 100%;
   height: 100%;
-  box-shadow: -2px 0 4px hsla(var(--hue), 24%, 15%, .1);
+  box-shadow: -2px 0 4px hsla(152, 24%, 15%, .1);
   padding: 4rem 0 0 3rem;
   border-radius: 1rem 0 0 1rem;
   z-index: 1;
@@ -1199,7 +1192,7 @@ body.dark-theme {
 .icon__shop {
 
   display: inline-flex;
-  color: var(--text-color);
+  color: #fff;
   font-size: 1.15rem;
 
 }
@@ -1224,15 +1217,15 @@ body.dark-theme {
 
 .nav__link {
 
-  color: var(--title-color);
-  font-weight: var(--font-medium);
+  color: #fff;
+  font-weight: 500;
   transition: .3s;
 
 }
 
 .nav__link:hover {
 
-  color: var(--first-color);
+  color: hsl(157, 9%, 82%);
 
 }
 
@@ -1261,7 +1254,7 @@ body.dark-theme {
 
 .scroll-header {
 
-  box-shadow: 0 1px 4px hsla(var(--hue), 4%, 15%, .1);
+  box-shadow: 0 1px 4px hsla(152, 4%, 15%, .1);
 
 }
 
@@ -1270,7 +1263,7 @@ body.dark-theme {
 .nav__item.active-link a {
 
   position: relative;
-  color: var(--first-color);
+  color: hsl(152, 24%, 32%);
   
 }
 
@@ -1282,7 +1275,7 @@ body.dark-theme {
   left: 0;
   width: 50%;
   height: 2px;
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
   transition: .3s;
 
 }
@@ -1311,15 +1304,15 @@ body.dark-theme {
 
 .home__title {
 
-  font-size: var(--h1-font-size);
+  font-size: 1.5rem;
   line-height: 140%;
-  margin-bottom: var(--mb-1);
+  margin-bottom: 1rem;
   
 }
 
 .home__description {
   
-  margin-bottom: var(--mb-2-5);
+  margin-bottom: 2.5rem;
 
 }
 
@@ -1336,9 +1329,9 @@ body.dark-theme {
 
 .home__social-follow {
 
-  font-weight: var(--font-medium);
-  font-size: var(--smaller-font-size);
-  color: var(--first-color);
+  font-weight: 500;
+  font-size: .75rem;
+  color: hsl(152, 24%, 32%);
   position: relative;
   transform: rotate(90deg);
   right: 1.2rem;
@@ -1352,7 +1345,7 @@ body.dark-theme {
   position: absolute;
   width: 1.3rem;
   height: 1.5px;
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
   right: -55%;
   top: 47%;
 
@@ -1370,7 +1363,7 @@ body.dark-theme {
 .home__social-link {
 
   font-size: 1rem;
-  color: var(--first-color);
+  color: hsl(152, 24%, 32%);
   transition: .3s;
 
 }
@@ -1386,18 +1379,18 @@ body.dark-theme {
 .btn {
 
   display: inline-block;
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
   color: #FFF;
   padding: 1rem 1.75rem;
   border-radius: .5rem;
-  font-weight: var(--font-medium);
+  font-weight: 500;
   transition: .3s;
 
 }
 
 .btn:hover {
   
-    background-color: var(--first-color-alt);
+    background-color: hsl(152, 24%, 28%);
   
 }
 
@@ -1423,8 +1416,8 @@ body.dark-theme {
 
 .btn-link {
 
-  color: var(--first-color);
-  font-weight: var(--font-medium);
+  color: hsl(152, 24%, 32%);
+  font-weight: 500;
 
 }
 
@@ -1439,7 +1432,7 @@ body.dark-theme {
   position: absolute;
   right: 0;
   bottom: 0;
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
   color: #FFF;
   padding: 0.25rem;
   border-radius: .35rem;
@@ -1449,7 +1442,7 @@ body.dark-theme {
 
 .btn-product:hover {
 
-  background-color: var(--first-color-alt);
+  background-color: hsl(152, 24%, 28%);
 
 }
 
@@ -1474,15 +1467,9 @@ body.dark-theme {
 
 }
 
-.about__title {
-
-  margin-bottom: var(--mb-1);
-
-}
-
 .about__description {
 
-  margin-bottom: var(--mb-2);
+  margin-bottom: 2rem;
 
 }
 
@@ -1490,7 +1477,7 @@ body.dark-theme {
   
     display: grid;
     row-gap: 1rem;
-    margin-bottom: var(--mb-2-5);
+    margin-bottom: 30px;
   
 }
 
@@ -1498,14 +1485,14 @@ body.dark-theme {
 
   display: inline-flex;
   column-gap: .5rem;
-  font-size: var(--small-font-size);
+  font-size: 1rem;
 
 }
 
 .about__details-icon {
 
   font-size: 1rem;
-  color: var(--first-color);
+  color: hsl(152, 24%, 32%);
   margin-top: 0.1rem;
 
 }
@@ -1514,7 +1501,7 @@ body.dark-theme {
 
 .steps__bg {
 
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
   padding: 3rem 2rem 2rem;
   border-radius: 1rem;
 
@@ -1535,7 +1522,7 @@ body.dark-theme {
 
 .steps__card {
 
-  background-color: var(--container-color);
+  background-color: #fff;
   padding: 2.5rem 3rem 2rem 1.5rem;
   border-radius: 1rem;
 
@@ -1544,26 +1531,26 @@ body.dark-theme {
 .steps__card-number {
 
   display: inline-block;
-  background-color: var(--first-color-alt);
+  background-color: hsl(152, 24%, 28%);
   color: #FFF;
   padding: 0.5rem 0.75rem;
   border-radius: .25rem;
-  font-size: var(--h2-font-size);
-  margin-bottom: var(--mb-1-5);
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
   transition: .3s;
 
 }
 
 .steps__card-title {
 
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-0-5);
+  font-size: 1rem;
+  margin-bottom: .5rem;
 
 }
 
 .steps__card-description {
 
-  font-size: var(--small-font-size);
+  font-size: .813rem;
 
 }
 
@@ -1601,7 +1588,7 @@ body.dark-theme {
   position: relative;
   width: 120px;
   justify-self: center;
-  margin-bottom: var(--mb-0-75);
+  margin-bottom: .75rem;
   transition: .3s;
 
 }
@@ -1609,9 +1596,9 @@ body.dark-theme {
 .product__title, 
 .product__precio {
 
-  font-size: var(--small-font-size);
-  font-weight: var(--font-semi-bold);
-  color: var(--title-color);
+  font-size: .813rem;
+  font-weight: 600;
+  color: hsl(152, 4%, 15%);
 
 }
 
@@ -1625,7 +1612,7 @@ body.dark-theme {
   
   width: 90px;
   height: 90px;
-  background-color: var(--first-color-lighten);
+  background-color: hsl(152, 24%, 92%);
   border-radius: 50%;
   position: absolute;
   top: 18%;
@@ -1643,7 +1630,7 @@ body.dark-theme {
 
 .questions {
 
-  background-color: var(--first-color-lighten);
+  background-color: hsl(152, 24%, 92%);
 
 }
 
@@ -1663,15 +1650,15 @@ body.dark-theme {
 
 .questions__item {
 
-  background-color: var(--container-color);
+  background-color: #fff;
   border-radius: .25rem;
 
 }
 
 .questions__item-title {
 
-  font-size: var(--small-font-size);
-  font-weight: var(--font-medium);
+  font-size: .813rem;
+  font-weight: 500;
 
 }
 
@@ -1688,7 +1675,7 @@ body.dark-theme {
 .questions__icon {
 
   font-size: 1.25rem;
-  color: var(--title-color-color);
+  color: hsl(152, 4%, 15%);
 
 }
 
@@ -1701,7 +1688,7 @@ body.dark-theme {
 
 .questions__description {
 
-  font-size: var(--smaller-font-size);
+  font-size: .75rem;
   padding: 0 1.5rem 1.5rem 2.5rem;
 
 }
@@ -1719,7 +1706,7 @@ body.dark-theme {
 
 .questions__item:hover {
 
-  box-shadow: 0 2px 8px hsla(var(--hue), 4%, 15%, .1);
+  box-shadow: 0 2px 8px hsla(152, 4%, 15%, .1);
 
 }
 
@@ -1728,7 +1715,7 @@ body.dark-theme {
 .accordion-open .questions__header,
 .accordion-open .questions__content {
 
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
 }
 
 .accordion-open .questions__icon,
@@ -1762,10 +1749,10 @@ body.dark-theme {
 
 .contact__subtitle {
 
-  font-size: var(--normal-font-size);
-  font-weight: var(--font-medium);
-  color: var(--text-color);
-  margin-bottom: var(--mb-0-5);
+  font-size: .938rem;
+  font-weight: 500;
+  color: hsl(152, 4%, 35%);
+  margin-bottom: .5rem;
 
 }
 
@@ -1774,8 +1761,8 @@ body.dark-theme {
   display: inline-flex;
   align-items: center;
   column-gap: .5rem;
-  color: var(--title-color);
-  font-size: var(--font-medium);
+  color: hsl(152, 4%, 15%);
+  font-size: 500;
 
 }
 
@@ -1789,7 +1776,7 @@ body.dark-theme {
 
   display: grid;
   row-gap: 2rem;
-  margin-bottom: var(--mb-2-5);
+  margin-bottom: 2.5rem;
 
 }
 
@@ -1797,7 +1784,7 @@ body.dark-theme {
 
   position: relative;
   height: 3rem;
-  border-bottom: 1px solid var(--text-color-light);
+  border-bottom: 1px solid hsl(152, 4%, 55%);
 
 }
 
@@ -1810,7 +1797,7 @@ body.dark-theme {
   height: 100%;
   padding: 1rem 1rem 1rem 0;
   background: none;
-  color: var(--text-color);
+  color: hsl(152, 4%, 35%);
   border: none; outline: none;
   z-index: 1;
 
@@ -1821,8 +1808,8 @@ body.dark-theme {
   position: absolute;
   top: .75rem;
   width: 100%;
-  font-size: var(--small-font-size);
-  color: var(--text-color-light);
+  font-size: .813rem;
+  color: hsl(152, 4%, 55%);
   transition: .3s;
 
 }
@@ -1845,7 +1832,7 @@ body.dark-theme {
 
   top: -.75rem;
   left: 0;
-  font-size: var(--smaller-font-size);
+  font-size: .75rem;
   z-index: 10;
 
 }
@@ -1855,7 +1842,7 @@ body.dark-theme {
 .contact__input:not(:placeholder-shown).contact__input:not(:focus) + .contact__label {
 
   top: -.75rem;
-  font-size: var(--smaller-font-size);
+  font-size: .75rem;
   z-index: 10;
 
 }
@@ -1879,11 +1866,11 @@ body.dark-theme {
     display: inline-flex;
     align-items: center;
     column-gap: .5rem;
-    color: var(--title-color);
+    color: hsl(152, 4%, 15%);
     text-transform: uppercase;
     font-weight: 700;
     letter-spacing: -1px;
-    margin-bottom: var(--mb-2-5);
+    margin-bottom: 2.5rem;
     transition: .3s;
 
 }
@@ -1891,26 +1878,26 @@ body.dark-theme {
 .extra__logo-icon {
   
     font-size: 1.15rem;
-    color: var(--first-color);
+    color: hsl(152, 24%, 32%);
   
 }
 
 .extra__logo:hover {
 
-    color: var(--first-color);
+    color: hsl(152, 24%, 32%);
 
 }
 
 .extra__title {
 
-  font-size: var(--h3-font-size);
-  margin-bottom: var(--mb-1-5);
+  font-size: 1rem;
+  margin-bottom: 1.5rem;
 
 }
 
 .extra__subscribe {
 
-  background-color: var(--first-color-lighten);
+  background-color: hsl(152, 24%, 92%);
   padding: .75rem;
   display: flex;
   justify-content: space-between;
@@ -1923,7 +1910,7 @@ body.dark-theme {
   width: 70%;
   padding: 0 .5rem;
   background: none;
-  color: var(--text-color);
+  color: hsl(152, 4%, 35%);
   border: none; outline: none;
 
 }
@@ -1937,7 +1924,7 @@ body.dark-theme {
 
 .extra__info {
 
-  font-size: var(--small-font-size);
+  font-size: .813rem;
 
 }
 
@@ -1951,7 +1938,7 @@ body.dark-theme {
 .extra__social-link {
 
   font-size: 1rem;
-  color: var(--text-color);
+  color: hsl(152, 4%, 35%);
   transition: .3s;
 
 }
@@ -1985,7 +1972,7 @@ footer {
   align-items: center;
   position: relative;
   width: 100%;
-  background: #3e6553;
+  background: #BBDDEE;
   color: white;
   /* background: var(--first-color-light); */
   min-height: 100px;
@@ -2008,7 +1995,7 @@ footer .social_icon, footer .menu {
 /* footer .social_icon li a {
 
   font-size: 2em;
-  color: hsl(var(--hue), 24%, 32%);
+  color: hsl(152, 24%, 32%);
   margin: 0 10px;
   display: inline-block;
   transition: .5s;
@@ -2024,7 +2011,7 @@ footer .social_icon, footer .menu {
 footer .menu li a {
 
   font-size: 1.2em;
-  color: hsl(var(--hue), 24%, 32%);
+  color: hsl(152, 24%, 32%);
   margin: 0 10px;
   display: inline-block;
   opacity: .9;
@@ -2039,7 +2026,7 @@ footer .menu li a:hover {
 
 footer p {
 
-  color: hsl(var(--hue), 24%, 32%);
+  color: hsl(152, 24%, 32%);
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -2123,13 +2110,13 @@ footer .wave {
 .scrollup {
 
   position: fixed;
-  background-color: var(--first-color);
+  background-color: hsl(152, 24%, 32%);
   right: 1rem;
   bottom: -30%;
   display: inline-flex;
   padding: 0.5rem;
   border-radius: .25rem;
-  z-index: var(--z-tooltip);
+  z-index: 10;
   opacity: .8;
   transition: .4s;
 
@@ -2144,7 +2131,7 @@ footer .wave {
 
 .scrollup:hover {
 
-  background-color: var(--first-color-alt);
+  background-color: hsl(152, 24%, 28%);
   opacity: 1;
 
 }
@@ -2162,13 +2149,13 @@ footer .wave {
 ::-webkit-scrollbar {
 
   width: .6rem;
-  background-color: hsl(var(--hue), 4%, 53%);
+  background-color: hsl(152, 4%, 53%);
 
 }
 
 ::-webkit-scrollbar-thumb {
 
-  background-color: hsl(var(--hue), 4%, 29%);
+  background-color: hsl(152, 4%, 29%);
   border-radius: .5rem;
 
 }
@@ -2183,7 +2170,7 @@ footer .wave {
 
     margin-left: var(--mb-1);
     margin-right: var(--mb-1);
-    margin-bottom: var(--mb-2);
+    margin-bottom: 2rem;
 
   }
 
@@ -2206,7 +2193,7 @@ footer .wave {
 
   .home__description {
 
-    font-size: var(--small-font-size);
+    font-size: .813rem;
 
   }
 
@@ -2512,7 +2499,7 @@ footer .wave {
 
   .home__social-follow {
 
-    font-size: var(--h3-font-size);
+    font-size: 1rem;
     margin-bottom: -12px;
     margin-top: 1rem;
 
@@ -2538,12 +2525,6 @@ footer .wave {
 
   }
 
-  .section__title, .section__title-center {
-
-    font-size: var(--h1-font-size);
-
-  }
-
   .about__img {
 
     width: 400px;
@@ -2559,7 +2540,7 @@ footer .wave {
 
   .steps__card-title {
 
-    font-size: var(--normal-font-size);
+    font-size: .938rem;
 
   }
 
@@ -2594,7 +2575,7 @@ footer .wave {
   .product__title,
   .product__precio {
 
-    font-size: var(--normal-font-size);
+    font-size: .938rem;
 
   }
 
@@ -2630,7 +2611,7 @@ footer .wave {
 
   .extra__logo {
 
-    font-size: var(--h3-font-size);
+    font-size: 1rem;
 
   }
 

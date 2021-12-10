@@ -71,7 +71,7 @@
                     </button>
                     
                 </div>
-                <img src="..\assets\registerUser.svg" alt="Register User" class="image">
+                <img src="../assets/images/registerUser.svg" alt="Register User" class="image">
 
             </div>
 

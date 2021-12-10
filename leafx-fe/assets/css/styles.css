@@ -11,9 +11,9 @@
   --first-color: hsl(152, 24%, 32%); /* #3e6553 */
   --first-color-alt: hsl(152, 24%, 28%); /* #365949 */
   --first-color-light: hsl(152, 24%, 66%); /* #93bdaa */
-  --first-color-lighten: hsl(var(--hue), 24%, 92%);
-  --title-color: hsl(var(--hue), 4%, 15%);
-  --text-color: hsl(var(--hue), 4%, 35%);
+  --first-color-lighten: hsl(152, 24%, 92%);
+  --title-color: hsl(152, 4%, 15%);
+  --text-color: hsl(152, 4%, 35%);
   --text-color-light: hsl(152, 4%, 55%);
   --body-color: hsl(var(--hue), 0%, 100%);
   --container-color: #FFF;
@@ -887,7 +887,7 @@ body.dark-theme {
 .questions__icon {
 
   font-size: 1.25rem;
-  color: var(--title-color-color);
+  color: var(--title-color);
 
 }
 
