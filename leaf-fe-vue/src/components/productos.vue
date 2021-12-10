@@ -30,9 +30,8 @@
                     <h1 class="text-center">PRODUCTOS</h1>
                     <hr>
                 </div>
-                <div class="row">
 
-                    <div class="col-12 col-md-6">
+                <div>
 
                         <table class="table">
                             <thead>
@@ -53,48 +52,47 @@
                                 </tr>
                             </tbody>
                         </table>
+
                         <div>
                             <button type="button" class="btn btn-success">Success</button>
                         </div>
+
                         <div v-if="product_selected" class="item shadow mb-4">
+
                             <h3 class="item-title">{{product.nombre}}</h3>
 
+                            <form v-on:submit.prevent="processEditProduct">
+
+                                <div>
+                                    <p>Nombre del Producto</p>
+                                    <input v-model="product.nombre" type="text" placeholder="Nombre del Producto"> 
+                                </div>
+                           
+                                <div>
+                                    <p>Precio</p>
+                                    <input v-model="product.precio" type="text" placeholder="Precio">
+                                </div>
+                                
+                                <div>
+                                    <p>Stock</p>
+                                    <input v-model="product.stock" type="text" placeholder="Stock">
+                                </div>
+
+                                <button v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
+                                    <span v-if="!is_loading">Actualizar</span>
+                                    <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
+                                </button>
+
+                            </form>
+
                             <div class="item-details">
-                                <h4 class="item-price"><span class="money">$ {{formatPrice(product.precio)}}</span></h4>
+
                                 <button type="button" class="btn btn-danger">Eliminar</button>
-                                <button v-on:click="showEditProduct" class="item-button btn btn-primary addToCart">EDITAR</button>
+
                             </div>
-                        </div>
-                        
-                    </div>
-
-                </div>
-
-                <div v-if="product_edit">
-
-                    <form v-on:submit.prevent="processEditProduct">
-
-                        <h2 class="title">Editar Producto</h2>
-
-                        <div class="input-field">
-                            <i class="fas fa-envelope"></i>
-                            <input v-model="product.nombre" type="text" placeholder="Nombre del Producto"> 
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-envelope"></i>
-                            <input v-model="product.precio" type="text" placeholder="Precio">
-                        </div>
-                        <div class="input-field">
-                            <i class="fas fa-envelope"></i>
-                            <input v-model="product.stock" type="text" placeholder="Stock">
+                            
                         </div>
 
-                        <button v-bind:class="{'disabled': is_loading}" class="btn solid">
-                            <span v-if="!is_loading">Actualizar</span>
-                            <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
-                        </button>
-                    </form>
-                    
                 </div>
             
             </div>
