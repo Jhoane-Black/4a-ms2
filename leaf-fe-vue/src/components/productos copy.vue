@@ -2,9 +2,39 @@
 
 
     <header class="h-container">
-        <div class="container">
-            <h1 class="text-center">MIS PROVEEDORES</h1>
-        </div>
+        <nav class="nav container">
+
+                <a href="/" class="nav__logo">
+                    <i class="ri-leaf-line nav__logo-icon"></i> Leaf
+                </a>
+
+                <div class="nav__menu" id="nav-menu">
+
+                    <ul class="nav__list"> 
+
+                        <li v-if="!is_auth" class="nav__item homeNav">
+                            <a href="#login" class="nav__link">Iniciar sesión</a>
+                        </li>
+                        <li v-if="is_auth" v-on:click="logout" class="btn_logout">
+                            <a href="#login" class="nav__link">Cerrar sesión </a>
+                        </li>
+                        <li class="nav__item about">
+                            <a href="#about" class="nav__link">Acerca</a>
+                        </li>
+                        <li class="nav__item products">
+                            <button v-on:click="loadProductos" class="btn_logout">Productos</button>
+                        </li>
+
+                    </ul>
+
+                    <div class="nav__close" id="nav-close-menu">
+
+                        <i class="ri-close-line"></i>
+
+                    </div>
+
+                </div>
+
     </header>
     <!-- START SECTION PRODUCTS -->
     <section class="store">

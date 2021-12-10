@@ -2,9 +2,15 @@
 
 
     <header class="h-container">
-        <div class="container">
-            <h1 class="text-center">MIS PROVEEDORES</h1>
-        </div>
+        <nav>
+            <a href="/" class="nav__logo">
+                <i class="ri-leaf-line nav__logo-icon"></i> Leaf
+            </a>
+            <div class="nav__item index">
+                <a href="#index" class="nav__link">Home</a>
+            </div>
+        </nav>
+        
     </header>
     <!-- START SECTION PRODUCTS -->
     <section class="store">
@@ -15,7 +21,7 @@
 
                     <div class="col-12 col-md-6">
 
-                        <ol>
+                        <ol class="lista_productos">
                             <li v-for="proveedor in proveedores" v-bind:key="proveedor.id">
                                 <span class="click" v-on:click="getProductosByProveedor(proveedor.id)">{{proveedor.nombre}}</span>
                             </li>
@@ -25,9 +31,8 @@
 
                 </div>
 
-                <div class="container">
-                    <h1 class="text-center">PRODUCTOS</h1>
-                    <hr>
+                <div class="title">
+                    <h1>PRODUCTOS</h1>
                 </div>
 
                 <div>
@@ -111,21 +116,36 @@
     margin: 0;
     padding: 0;
 }
-.store{
+.h-container{
+    position: relative;
+    width:100vw;
+    height:100px;
     background: #3e6553;
+}
+.nav__logo{
+    display: inline;
+    margin:10px;
+}
+.nav__item{
+    display: inline;
+    margin:10px;
+}
+.lista_productos{
+    background: purple;
+}
+.store{
+    background: gray;
     height: 100vh;
 }
 
-.h-container{
-    width:100%;
-    height:100%;
-    background: #3e6553;
-}
+
 
 .container{
-    width:100%;
-    height:100%;
+
     background: #3e6553;
+    margin-left: 10vw;
+    margin-right: 10vw;
+
 }
 .app{
     width:100%;
