@@ -14,8 +14,8 @@
                         <li v-if="!is_auth" class="nav__item homeNav">
                             <a href="#login" class="nav__link">Iniciar sesión</a>
                         </li>
-                        <li v-if="is_auth">
-                            <button v-on:click="logout" class="btn_logout">Cerrar sesión</button>
+                        <li v-if="is_auth" v-on:click="logout" class="btn_logout">
+                            <a href="#login" class="nav__link">Cerrar sesión </a>
                         </li>
                         <li class="nav__item about">
                             <a href="#about" class="nav__link">Acerca</a>

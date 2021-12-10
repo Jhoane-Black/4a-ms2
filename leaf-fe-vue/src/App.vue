@@ -56,7 +56,7 @@ export default {
       }
     }, // Todas las funciones que usa este componente
     created: function () {
-      this.loadIndex();
+      this.verifyAuth()
     } // Eventos: lo que pasa cuando el componente se inicia
 };
 </script>
