@@ -3,6 +3,7 @@ import App from './App.vue'
 import LogIn from './components/login.vue'
 import signUp from './components/signup.vue'
 import Carrito from './components/carrito.vue'
+import Productos from './components/productos.vue'
 import Index from './components/index.vue'
 const routes = [
   {
@@ -30,11 +31,11 @@ const routes = [
     name: 'index',
     component: Index
   },
-  /*{
-    path: '/',
-    name: 'recuperacion',
-    component: Recuperacion
-  },*/
+  {
+    path: '/productos',
+    name: 'productos',
+    component: Productos
+  },
 
 ]
 
