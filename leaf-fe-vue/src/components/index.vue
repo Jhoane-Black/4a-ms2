@@ -21,7 +21,7 @@
                             <a href="#about" class="nav__link">Acerca</a>
                         </li>
                         <li class="nav__item products">
-                            <a href="#products" class="nav__link">Productos</a>
+                            <button v-on:click="loadProductos" class="btn_logout">Productos</button>
                         </li>
 
                     </ul>
@@ -769,6 +769,9 @@ export default {
     }, // Todas las variables de este componentes
 
     methods: { 
+      loadProductos(){
+        this.$router.push({name: "productos"});
+      },
       verifyAuth(){
         this.is_auth = localStorage.getItem("is_auth") || false;
       },

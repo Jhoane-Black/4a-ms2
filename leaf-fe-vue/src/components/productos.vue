@@ -18,7 +18,7 @@
 
                         <ol>
                             <li v-for="proveedor in proveedores" v-bind:key="proveedor.id">
-                                <span v-on:click="getProductosByProveedor(proveedor.id)">{{proveedor.nombre}}</span>
+                                <span class="click" v-on:click="getProductosByProveedor(proveedor.id)">{{proveedor.nombre}}</span>
                             </li>
                         </ol>
                         
@@ -39,27 +39,29 @@
                                 <tr>
                                     <th scope="col">Producto</th>
                                     <th scope="col">Precio</th>
-                                    <th scope="col">Seleccionar</th>
+                                    <th scope="col">Stock</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="producto in productos" v-bind:key="producto.id">
-                                    <td>{{producto.nombre}}</td>
+                                    <td class="click" v-on:click="getOneProduct(producto)">{{producto.nombre}}</td>
                                     <td><span class="money">$ {{formatPrice(producto.precio)}}</span></td>
                                     <td>
-                                        <button v-on:click="getOneProduct(producto)" class="btn">
-                                            Editar
-                                        </button>
+                                        <span>{{producto.stock}}</span>
+                                    
                                     </td>
                                 </tr>
                             </tbody>
                         </table>
-
+                        <div>
+                            <button type="button" class="btn btn-success">Success</button>
+                        </div>
                         <div v-if="product_selected" class="item shadow mb-4">
                             <h3 class="item-title">{{product.nombre}}</h3>
 
                             <div class="item-details">
                                 <h4 class="item-price"><span class="money">$ {{formatPrice(product.precio)}}</span></h4>
+                                <button type="button" class="btn btn-danger">Eliminar</button>
                                 <button v-on:click="showEditProduct" class="item-button btn btn-primary addToCart">EDITAR</button>
                             </div>
                         </div>
@@ -481,6 +483,11 @@ opacity: 0.75;
 
 .text-secondary {
     color: rgba(108, 117, 125, 1) !important;
+}
+
+
+.click{
+    cursor: pointer;
 }
 
 .modal {
