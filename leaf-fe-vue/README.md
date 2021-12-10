@@ -1,4 +1,4 @@
-# leaf-fe
+# leaf_fe
 
 ## Project setup
 ```

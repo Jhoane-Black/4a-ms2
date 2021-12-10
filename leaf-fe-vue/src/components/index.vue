@@ -1,128 +1,21 @@
 <template>
-<header class="header" id="header">
+<header class="header shadow" id="header">
             
             <nav class="nav container">
 
                 <a href="/" class="nav__logo">
-
-                    <i class="ri-leaf-line nav__logo-icon"></i> Leafx
-
+                    <i class="ri-leaf-line nav__logo-icon"></i> Leaf
                 </a>
-
-                <!-- <div class="item" id="item">
-
-                    <div class="resizer ne"></div>
-                    <div class="resizer nw"></div>
-                    <div class="resizer sw"></div>
-                    <div class="resizer se"></div>
-
-                    <div class="nav__close-item" id="nav-close-item">
-
-                        <i class="ri-close-line"></i>
-
-                    </div>
-
-                </div> -->
-
-                <div class="nav__shop" id="nav-shop">
-
-                    <!-- START SECTION SHOPPING CART -->
-                    <section class="shopping-cart">
-                        <div class="container">
-                            <h1 class="text-center">CARRITO</h1>
-                            <hr>
-                            <div class="row">
-                                <div class="col-6">
-                                    <div class="shopping-cart-header">
-                                        <h6>Producto</h6>
-                                    </div>
-                                </div>
-                                <div class="col-2">
-                                    <div class="shopping-cart-header">
-                                        <h6 class="text-truncate">Precio</h6>
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="shopping-cart-header">
-                                        <h6>Cantidad</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- ? START SHOPPING CART ITEMS -->
-                            <div class="shopping-cart-items shoppingCartItemsContainer">
-                            </div>
-                            <!-- ? END SHOPPING CART ITEMS -->
-                
-                            <!-- START TOTAL -->
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="shopping-cart-total d-flex align-items-center">
-                                        <p class="mb-0">Total</p>
-                                        <p class="ml-4 mb-0 shoppingCartTotal">$ 0</p>
-                                        <div class="toast ml-auto bg-info" role="alert" aria-live="assertive" aria-atomic="true"
-                                            data-delay="2000">
-                                            <div class="toast-header">
-                                                <span>✅</span>
-                                                <strong class="mr-auto ml-1 text-secondary">Elemento en el carrito</strong>
-                                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                            </div>
-                                            <div class="toast-body text-white">
-                                                Se aumentó correctamente la cantidad
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-success ml-auto buyBtn" type="button" data-toggle="modal"
-                                            data-target="#comprarModal">Comprar</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END TOTAL -->
-                
-                            <!-- START MODAL COMPRA -->
-                            <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="comprarModalLabel"
-                                aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="comprarModalLabel">Gracias por su compra</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <p>Pronto recibirá su pedido</p>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- END MODAL COMPRA -->
-                
-                
-                        </div>
-                
-                    </section>
-                    <!-- END SECTION SHOPPING CART -->
-
-                    <div class="nav__close-shop" id="nav-close-shop">
-
-                        <i class="ri-close-line"></i>
-
-                    </div>
-
-                </div>
 
                 <div class="nav__menu" id="nav-menu">
 
                     <ul class="nav__list"> 
 
-                        <!-- Emmet https://docs.emmet.io/  (li.nav__item>a[href="#"].nav__link)*5 -->
-
-                        <li class="nav__item homeNav">
-                            <a href="#homeNav" class="nav__link">Inicio</a>
+                        <li v-if="!is_auth" class="nav__item homeNav">
+                            <a href="#login" class="nav__link">Iniciar sesión</a>
+                        </li>
+                        <li v-if="is_auth">
+                            <button v-on:click="logout" class="btn_logout">Cerrar sesión</button>
                         </li>
                         <li class="nav__item about">
                             <a href="#about" class="nav__link">Acerca</a>
@@ -130,15 +23,7 @@
                         <li class="nav__item products">
                             <a href="#products" class="nav__link">Productos</a>
                         </li>
-                        <li class="nav__item faqs">
-                            <a href="#faqs" class="nav__link">FAQs</a>
-                        </li>
-                        <li class="nav__item contact">
-                            <a href="#contact" class="nav__link">Contáctanos</a>
-                        </li> 
-                        <li class="nav__item extras">
-                            <a href="#extras" class="nav__link">Extras</a>
-                        </li> 
+
                     </ul>
 
                     <div class="nav__close" id="nav-close-menu">
@@ -151,22 +36,14 @@
 
                 <div class="nav__btns">
 
-                    <!-- Botón para el Dark Mode -->
-                    <i class="ri-moon-line change-theme" id="btn-theme"></i>
-
                     <div class="nav__toggle-shop" id="nav-toggle-shop">
-
                         <i class="ri-shopping-cart-2-line icon__shop"></i>
-
                     </div>
 
 
                     <div class="nav__toggle" id="nav-toggle-menu">
-    
                         <i class="ri-menu-line"></i>
-    
                     </div>
-
 
                 </div>
                     
@@ -180,7 +57,11 @@
                 
                 <div class="home__container container grid">
 
-                    <img src=".assets\home.png" alt="Home Img" class="home__img">
+                    <img
+                      class="home__img"
+                      v-bind:src="require('../assets/home.png')"
+                      alt="Home Img"
+                    />
 
                     <div class="home__data">
 
@@ -233,7 +114,11 @@
                 
                 <div class="about__container grid">
 
-                    <img src=".assets\about.png" alt="About Img" class="about__img">
+                    <img
+                      class="about__img"
+                      v-bind:src="require('../assets/about.png')"
+                      alt="About Img"
+                    />
 
                     <div class="about__data">
 
@@ -280,7 +165,7 @@
             </section>
 
             <!--================= PASO A PASO =================-->
-            <section class="steps section container">
+<!--             <section class="steps section container">
                 
                 <div class="steps__bg">
 
@@ -328,7 +213,7 @@
 
                     </div>
                 </div>
-            </section>
+            </section> -->
 
             <!--==================== PRODUCTOS ====================-->
             <section class="product section container" id="products">
@@ -348,7 +233,11 @@
 
                         <div class="product__circle"></div>
 
-                        <img src=".assets\product1.png" alt="Producto 1" class="product__img">
+                        <img
+                          class="product__img"
+                          v-bind:src="require('../assets/product1.png')"
+                          alt="Producto 1"
+                        />
 
                         <h3 class="product__title">Planta Cactácea</h3>
                         <span class="product__precio">$50,000</span>
@@ -363,7 +252,11 @@
 
                         <div class="product__circle"></div>
 
-                        <img src=".assets\product2.png" alt="Producto 2" class="product__img">
+                        <img
+                          class="product__img"
+                          v-bind:src="require('../assets/product2.png')"
+                          alt="Producto 2"
+                        />
 
                         <h3 class="product__title">Planta Cactus</h3>
                         <span class="product__precio">$60,000</span>
@@ -378,7 +271,11 @@
 
                         <div class="product__circle"></div>
 
-                        <img src=".assets\product3.png" alt="Producto 3" class="product__img">
+                        <img
+                          class="product__img"
+                          v-bind:src="require('../assets/product3.png')"
+                          alt="Producto 3"
+                        />
 
                         <h3 class="product__title">Planta Aloe Vera</h3>
                         <span class="product__precio">$77,000</span>
@@ -393,7 +290,11 @@
 
                         <div class="product__circle"></div>
 
-                        <img src=".assets\product4.png" alt="Producto 4" class="product__img">
+                        <img
+                          class="product__img"
+                          v-bind:src="require('../assets/product4.png')"
+                          alt="Producto 4"
+                        />
 
                         <h3 class="product__title">Planta Suculenta</h3>
                         <span class="product__precio">$90,000</span>
@@ -408,7 +309,11 @@
 
                         <div class="product__circle"></div>
 
-                        <img src=".assets\product5.png" alt="Producto 5" class="product__img">
+                        <img
+                          class="product__img"
+                          v-bind:src="require('../assets/product5.png')"
+                          alt="Producto 5"
+                        />
 
                         <h3 class="product__title">Planta Dracaena</h3>
                         <span class="product__precio">$23,000</span>
@@ -423,7 +328,11 @@
 
                         <div class="product__circle"></div>
 
-                        <img src=".assets\product6.png" alt="Producto 6" class="product__img">
+                        <img
+                          class="product__img"
+                          v-bind:src="require('../assets/product6.png')"
+                          alt="Producto 6"
+                        />
                         
                         <h3 class="product__title">Planta de Menta</h3>
                         <span class="product__precio">$30,000</span>
@@ -439,7 +348,7 @@
             </section>
 
             <!--==================== FAQS ====================-->
-            <section class="questions section" id="faqs">
+            <!-- <section class="questions section" id="faqs">
                 
                 <h2 class="section__title-center questions__title container">
 
@@ -615,10 +524,10 @@
 
                 </div>
 
-            </section>
+            </section> -->
 
             <!--=================== CONTACTOS ===================-->
-            <section class="contact section container" id="contact">                
+            <!-- <section class="contact section container" id="contact">                
                 
                  <div class="contact__container grid">
 
@@ -717,7 +626,7 @@
 
                  </div>
 
-            </section>
+            </section> -->
 
             <!--==================== EXTRA INFORMACIÓN ====================-->
             <section class="extra section" id="extras">
@@ -728,7 +637,7 @@
 
                         <a href="#" class="extra__logo">
 
-                            <i class="ri-leaf-line extra__logo-icon"></i> Leafx
+                            <i class="ri-leaf-line extra__logo-icon"></i> Leaf
 
                         </a>
 
@@ -754,19 +663,6 @@
 
                     </div>
 
-                    <div class="extra__content">
-
-                        <h3 class="extra__title">Nuestra dirección</h3>
-
-                        <ul class="extra__data">
-
-                            <li class="extra__info">1234 - Colombia</li>
-                            <li class="extra__info">Bogotá D.C - 131937</li>
-                            <li class="extra__info">123-456-789</li>
-
-                        </ul>
-
-                    </div>
 
                     <div class="extra__content">
 
@@ -794,21 +690,6 @@
                             </div>
 
                         </ul>
-
-                    </div>
-
-                    <div class="extra__content">
-
-                        <h3 class="extra__title">Aceptamos tarjetas de credito</h3>
-
-                        <div class="extra__cards">
-
-                            <img src=".assets\card1.png" alt="Visa" class="extra__card">
-                            <img src=".assets\card2.png" alt="MasterCard" class="extra__card">
-                            <img src=".assets\card3.png" alt="Paypal" class="extra__card">
-                            <img src=".assets\card4.png" alt="Discover" class="extra__card">
-
-                        </div>
 
                     </div>
 
@@ -861,12 +742,10 @@
 
            <ul class="menu">
 
-            <li><a href="#home">Inicio</a></li>
+            <li><a href="#index">Inicio</a></li>
             <li><a href="#about">Acerca</a></li>
             <li><a href="#products">Productos</a></li>
-            <li><a href="#faqs">FAQs</a></li>
-            <li><a href="#contacts">Contáctanos</a></li>
-            <li><a href="#extras">Extras</a></li>
+            
 
            </ul>
 
@@ -882,46 +761,39 @@
 
         </a>
 
-        <!--=============== SCROLL REVEAL ===============-->
-        <!--<script src="assets/js/scrollreveal.min.js"></script>-->
-
-        <!--=============== LOADER ANIMATION ===============-->
-
-         <section class="section__loader">
-
-            <div class="loader">
-
-                <span style="--i:1;"></span>
-                <span style="--i:2;"></span>
-                <span style="--i:3;"></span>
-                <span style="--i:4;"></span>
-                <span style="--i:5;"></span>
-                <span style="--i:6;"></span>
-                <span style="--i:7;"></span>
-                <span style="--i:8;"></span>
-                <span style="--i:9;"></span>
-                <span style="--i:10;"></span>
-                <span style="--i:11;"></span>
-                <span style="--i:12;"></span>
-                <span style="--i:13;"></span>
-                <span style="--i:14;"></span>
-                <span style="--i:15;"></span>
-                <span style="--i:16;"></span>
-                <span style="--i:17;"></span>
-                <span style="--i:18;"></span>
-                <span style="--i:19;"></span>
-                <span style="--i:20;"></span>
-
-            </div>
-
-        </section>
         
 </template>
 
 <script>
+import gql from "graphql-tag";
+
+export default {
+    name: "Index", // Nombre del componente
+
+    data: function() {
+      return {
+        is_auth: false
+       }
+    }, // Todas las variables de este componentes
+
+    methods: { 
+      verifyAuth(){
+        this.is_auth = localStorage.getItem("is_auth") || false;
+      },
+      logout(){
+        this.is_auth = false;
+        localStorage.clear();
+        this.verifyAuth()
+      },
+    }, // Todas las funciones que usa este componente
+    
+    created: function () {
+      this.verifyAuth();
+    } // Eventos: lo que pasa cuando el componente se inicia
+};
 </script>
 
-<style>
+<style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 /*=============== VARIABLES CSS ===============*/
@@ -1154,11 +1026,12 @@ body.dark-theme {
 .header {
 
   width: 100%;
-  background-color: var(--body-color);
+  background-color: #3e6553;
+  color: white;
   position: fixed;
   top: 0;
   left: 0;
-  z-index: var(--z-fixed);
+  z-index: 1;
   transition: .4s;
 
 }
@@ -1231,6 +1104,11 @@ body.dark-theme {
     transition: .3s;
 
   }
+}
+
+.btn_logout {
+  background: transparent;
+  color: white;
 }
 
 .item {
@@ -2107,7 +1985,8 @@ footer {
   align-items: center;
   position: relative;
   width: 100%;
-  background: #BBDDEE;
+  background: #3e6553;
+  color: white;
   /* background: var(--first-color-light); */
   min-height: 100px;
   padding: 20px 50px;
@@ -2126,7 +2005,7 @@ footer .social_icon, footer .menu {
 
 }
 
-footer .social_icon li a {
+/* footer .social_icon li a {
 
   font-size: 2em;
   color: hsl(var(--hue), 24%, 32%);
@@ -2134,13 +2013,13 @@ footer .social_icon li a {
   display: inline-block;
   transition: .5s;
   
-}
+} */
 
-footer .social_icon li a:hover {
+/* footer .social_icon li a:hover {
   
   transform: translateY(-10px);
 
-}
+} */
 
 footer .menu li a {
 
@@ -2181,43 +2060,43 @@ footer .wave {
 
   }
   
-footer .wave#wave1 {
+/* footer .wave#wave1 {
 
   z-index: -10000;
   opacity: 1;
   bottom: 0;
   animation: animationWave 4s linear infinite;
 
-}
+} */
 
-footer .wave#wave2 {
+/* footer .wave#wave2 {
 
   z-index: -9999;
   opacity: .5;
   bottom: 10px;
   animation: animationWave2 4s linear infinite;
 
-}
+} */
 
-footer .wave#wave3 {
+/* footer .wave#wave3 {
 
   z-index: -10000;
   opacity: .3;
   bottom: 15px;
   animation: animationWave2 3s linear infinite;
 
-}
+} */
 
-footer .wave#wave4 {
+/* footer .wave#wave4 {
 
   z-index: -10000;
   opacity: .7;
   bottom: 20px;
   animation: animationWave2 3s linear infinite;
 
-}
+} */
 
-@keyframes animationWave {
+/* @keyframes animationWave {
 
   0% {
     background-position-x: 1000px;
@@ -2237,7 +2116,7 @@ footer .wave#wave4 {
     background-position-x: 1000px;
   }
 
-}
+} */
 
 /*=============== SCROLL UP ===============*/
 
