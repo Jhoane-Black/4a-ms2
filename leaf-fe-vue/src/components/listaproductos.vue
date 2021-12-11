@@ -22,7 +22,7 @@
         <div class="container">
             <div class="items shadow mb-2">
 
-                <div class="row">
+                <!-- <div class="row">
                     <h4>Proveedores Leaf</h4>
                         <div class="col-12 col-md-6">
 
@@ -33,13 +33,12 @@
                             </ol>
                         </div>
 
-                    <!-- <div class="new_product">
+                    <div class="new_product">
                         <button  v-on:click="showCreateProduct" type="button" class="btn btn-success">
                             Nuevo proveedor
                         </button>
-                    </div> -->
-
-                </div>
+                    </div>
+                </div> -->
 
                 <div class="title">
                     <h4>Productos Leaf</h4>
@@ -68,49 +67,41 @@
                         </table>
                     </div>
 
-                    <div>
+                  <!--   <div>
                             <div class="new_product">
                                 <button v-if="proveedor_selected"  v-on:click="showCreateProduct" type="button" class="btn btn-success">
                                     Nuevo producto
                                 </button>
                             </div>
 
-                        </div>
+                        </div> -->
 
-                        <div v-if="product_selected || product_create" class="form shadow mb-4">
+                        <div v-if="product_selected" class="form shadow mb-4">
 
-                            <h2 v-if="product_selected" class="item-title">Actualizar Producto</h2>
-                            <h2 v-if="product_create" class="item-title">Crear Producto</h2>
-                            <h3 class="item-title">{{proveedor.nombre}}</h3>
+                            <h2 v-if="product_selected" class="item-title">Comprar Producto</h2>
+                            <h4 class="item-title">{{cliente.nombre}}</h4>
 
                             <form>
 
                                 <div>
-                                    <p>Nombre del Producto:</p>
-                                    <input v-model="product.nombre" type="text" placeholder="Nombre del Producto"> 
+                                    <p><b>Nombre del Producto:</b> {{product.nombre}}</p>
                                 </div>
                                 <div>
-                                    <p>Precio:</p>
-                                    <input v-model="product.precio" type="text" placeholder="Precio">
-                                </div>
+                                    <p><b>Precio: </b> <span class="money">$ {{formatPrice(product.precio)}}</span> </p>
+                                 </div>
                                 
                                 <div>
-                                    <p>Stock:</p>
-                                    <input v-model="product.stock" type="text" placeholder="Stock">
+                                    <p>Cantidad:</p>
+                                    <input v-model="sale.cantidad" type="text" placeholder="Stock">
                                 </div>
                                 <div class="item-details">
 
-                                    <button v-on:click="updateProduct" v-if="product_selected" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
-                                        <span v-if="!is_loading">Actualizar producto</span>
+                                    <button v-on:click="createSale(product.id)" v-if="product_selected" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
+                                        <span v-if="!is_loading">¡Comprar Ahora!</span>
                                         <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
                                     </button>
 
-                                    <button v-on:click="createProduct" v-if="product_create" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
-                                        <span v-if="!is_loading">Crear producto</span>
-                                        <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
-                                    </button>
-
-                                    <button v-if="product_selected" v-on:click="deleteProduct(this.product.id)" type="button" class="btn btn-danger">Eliminar producto</button>
+                                    <!-- <button v-if="product_selected" v-on:click="deleteProduct(this.product.id)" type="button" class="btn btn-danger">Eliminar producto</button> -->
                                 
                                 </div>
                             </form>
@@ -118,6 +109,35 @@
 
 
                             
+                            
+                        </div>
+
+                        <div v-if="sale_selected" class="form shadow mb-4">
+
+                            <h2 v-if="product_selected" class="item-title">Resultado de compra</h2>
+                            <h4 class="item-title">{{cliente.nombre}}</h4>
+
+                            <form>
+
+                                <div>
+                                    <p><b>Nombre del Producto:</b> {{sale.nombre}}</p>
+                                </div>
+                                <div>
+                                    <p><b>Precio: </b> <span class="money">$ {{formatPrice(sale.precio)}}</span> </p>
+                                 </div>
+                                
+                                <div>
+                                    <p><b>Cantidad: </b> {{sale.cantidad}} </p>
+                                </div>
+                                <div>
+                                    <p><b>Total: </b> <span class="money">$ {{formatPrice(sale.total)}}</span> </p>
+                                </div>
+                                <div class="item-details">
+
+                                    <!-- <button v-if="product_selected" v-on:click="deleteProduct(this.product.id)" type="button" class="btn btn-danger">Eliminar producto</button> -->
+                                
+                                </div>
+                            </form>
                             
                         </div>
                         
@@ -1176,6 +1196,7 @@ export default {
           proveedor_selected: false,
           product_selected: false,
           product_create: false,
+          sale_selected: false,
           productos:{},
           clientes:{},
           product:{
@@ -1192,29 +1213,39 @@ export default {
             nit: 0
           },
           cliente:{
-            id: 0,
-            nombre: "",
-            direccion: "",
+            id:0,
+            nombre: ""
+          },
+          sale:{
+            registroID:"",
+            cliente:0,
+            proveedor:0,
+            producto:0,
+            cantidad:1,
+            precio:0,
+            total:0
           },
        }
     }, // Todas las variables de este componentes
 
     methods: { 
 
-        misProveedores: async function (){
+        getProveedor: async function (id_proveedor){
             this.is_loading = true;
             await this.$apollo.query({
                 query: gql`
-                    query MisProveedores {
-                        MisProveedores {
-                            id
-                            nombre
-                            direccion
-                            nit
-                            user
-                        }
+                    query ProveedorById($proveedorByIdId: Int!) {
+                      proveedorById(id: $proveedorByIdId) {
+                        nombre
+                        direccion
+                        nit
+                        user
+                      }
                     }
                 `,
+                variables: {
+                    proveedorByIdId: id_proveedor
+                },
             })
             .then((result) => {
                 console.log("FUNCIONÓOOO")
@@ -1248,7 +1279,10 @@ export default {
             .then((result) => {
                 console.log("FUNCIONÓOOO")
                 this.is_loading = false;
-                console.log(result)
+                this.cliente.id = result.data.MisClientes[0].id
+                this.cliente.nombre = result.data.MisClientes[0].nombre
+                console.log(this.cliente.id)
+                console.log(this.cliente.nombre)
             })
             .catch((error)=>{
                 this.show_error = true;
@@ -1259,27 +1293,24 @@ export default {
         },
 
         
-        misProductos: async function (id_proveedor){
+        misProductos: async function (){
             this.is_loading = true;
             await this.$apollo.query({
                 query: gql`
-                    query ProductosByproveedor($idProveedor: Int!) {
-                        productosByproveedor(id_proveedor: $idProveedor) {
-                            id
-                            nombre
-                            precio
-                            stock
-                            proveedor
-                        }
+                    query GetProductos {
+                      getProductos {
+                        id
+                        nombre
+                        precio
+                        stock
+                        proveedor
+                      }
                     }
                 `,
-                variables: {
-                    idProveedor: id_proveedor
-                },
             })
             .then((result) => {
                 console.log("FUNCIONÓOOO")
-                this.productos = result.data.productosByproveedor;
+                this.productos = result.data.getProductos;
                 console.log(this.productos)
                 this.is_loading = false;
             })
@@ -1291,103 +1322,39 @@ export default {
             })
         },
 
-        updateProduct: async function(){
+        createSale: async function(id_producto){
+            this.sale_selected = true;
             this.is_loading = true;
             this.product.id = +this.product.id;
-            this.product.precio = +this.product.precio;
-            this.product.stock = +this.product.stock;
-            this.product.proveedor = +this.product.proveedor;
+            this.cliente.id = +this.cliente.id;
+            this.sale.cantidad = +this.sale.cantidad
             await this.$apollo.mutate({
                 mutation: gql`
-                mutation UpdateProducto($productoData: ProductoUpdate!) {
-                    updateProducto(productoData: $productoData) {
-                        id
-                        nombre
-                        precio
-                        stock
-                        proveedor
-                    }
-                }`,
-                variables: {
-                    productoData: this.product
-                },
-            })
-            .then((result)=>{
-                console.log("FUNCIONÓOOO")
-                this.misProductos(this.product.proveedor);
-                this.is_loading = false;
-            })
-            .catch((error)=>{
-                console.log("DIO ERROR :c")
-                console.log(error)
-                this.is_loading = false;
-            })
-            
-        },
-
-        createProduct: async function(){
-            this.is_loading = true;
-            this.product.precio = +this.product.precio;
-            this.product.stock = +this.product.stock;
-            await this.$apollo.mutate({
-                mutation: gql`
-                mutation CreateProducto($productoData: ProductoInput!) {
-                  createProducto(productoData: $productoData) {
-                    id
-                    nombre
-                    precio
-                    stock
+                mutation CreateSaleRegister($saleRegister: SaleRegisterInput!) {
+                  createSaleRegister(saleRegister: $saleRegister) {
+                    registroID
+                    cliente
                     proveedor
+                    producto
+                    cantidad
+                    precio
+                    total
                   }
                 }`,
                 variables: {
-                    productoData: {
-                        nombre: this.product.nombre,
-                        precio: this.product.precio,
-                        stock: this.product.stock,
-                        proveedor: this.proveedor.id
+                    saleRegister: {
+                        cliente: this.cliente.id,
+                        producto: id_producto,
+                        cantidad: this.sale.cantidad
                     }
                 },
             })
             .then((result)=>{
                 console.log("FUNCIONÓOOO")
-                alert("Producto Creado Correctamente")
-                
-                setTimeout(() => {   
-                  this.getProductosByProveedor(this.proveedor.id);
-                  this.is_loading = false
-                }, 500);
-
-            })
-            .catch((error)=>{
-                console.log("DIO ERROR :c")
-                console.log(error)
-                this.is_loading = false;
-            })
-            
-        },
-
-        deleteProduct: async function(producto_id){
-            this.is_loading = true;
-            console.log(producto_id)
-            this.product.precio = +this.product.precio;
-            this.product.stock = +this.product.stock;
-            await this.$apollo.mutate({
-                mutation: gql`
-                  mutation DeleteProducto($deleteProductoId: Int!) {
-                    deleteProducto(id: $deleteProductoId)
-                  }
-                `,
-                variables: {
-                    deleteProductoId: producto_id
-                },
-            })
-            .then((result)=>{
-                console.log("FUNCIONÓOOO")    
-                this.getProductosByProveedor(this.proveedor.id);
-                alert("Producto Eliminado Correctamente")
+                alert("Compra Realizada")
+                this.sale =  result.data.createSaleRegister
+                console.log(this.sale) 
                 this.is_loading = false
-
             })
             .catch((error)=>{
                 console.log("DIO ERROR :c")
@@ -1407,17 +1374,17 @@ export default {
             this.product.proveedor = producto.proveedor;
         },
 
-        getProductosByProveedor(id_proveedor){
-            this.proveedor_selected = true;
-            this.misProductos(id_proveedor);
-        },
-
         formatPrice(value) {
             let val = (value / 1).toFixed(0).replace(".", ",");
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         },
 
-        setProveedor(prove){
+        /* getProductosByProveedor(id_proveedor){
+            this.proveedor_selected = true;
+            this.misProductos(id_proveedor);
+        }, */
+
+        /* setProveedor(prove){
             this.getProductosByProveedor(prove.id)
             this.proveedor={
                 id: prove.id,
@@ -1425,9 +1392,9 @@ export default {
                 direccion: prove.direccion,
                 nit: prove.nit,
             };
-        },
+        }, */
 
-        showCreateProduct(){
+        /* showCreateProduct(){
             this.product_create = true;
             this.product_selected = false;
             this.product={
@@ -1437,13 +1404,13 @@ export default {
                 stock: 0,
                 proveedor: 0,
             }
-        }
+        } */
 
     }, // Todas las funciones que usa este componente
 
     created: function () {
+        this.misProductos();
         this.misClientes();
-        //this.misProveedores();
     } // Eventos: lo que pasa cuando el componente se inicia
 };
 </script>
