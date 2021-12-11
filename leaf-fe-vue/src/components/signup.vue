@@ -63,11 +63,11 @@
 
                     <h3>¡Quiero ser!</h3>
                     <p>Elige si deseas contribuir como proveedor o disfrutar como cliente</p>
-                    <button v-if="!is_proveedor" v-on:click="setProveedor" class="btn transparent" id="sign-in-btn">
-                        <span v-if="!is_loading">Cliente</span>
-                    </button>
                     <button v-if="is_proveedor" v-on:click="setProveedor" class="btn transparent" id="sign-in-btn">
                         <span v-if="!is_loading">Proveedor</span>
+                    </button>
+                    <button v-if="!is_proveedor" v-on:click="setProveedor" class="btn transparent" id="sign-in-btn">
+                        <span v-if="!is_loading">Cliente</span>
                     </button>
                     
                 </div>
