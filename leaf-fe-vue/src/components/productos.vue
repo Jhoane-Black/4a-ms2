@@ -63,26 +63,29 @@
                     </div>
 
                     <div>
-                            <button type="button" class="btn btn-success">Nuevo producto</button>
+                            <div class="new_product">
+                                <button type="button" class="btn btn-success">Nuevo producto</button>
+                            </div>
+
                         </div>
 
-                        <div v-if="product_selected" class="item shadow mb-4">
+                        <div v-if="product_selected" class="form shadow mb-4">
 
                             <h3 class="item-title">{{product.nombre}}</h3>
 
                             <form v-on:submit.prevent="processEditProduct">
 
                                 <div>
-                                    <p>Nombre del Producto</p>
+                                    <p>Nombre del Producto:</p>
                                     <input v-model="product.nombre" type="text" placeholder="Nombre del Producto"> 
                                 </div>
                                 <div>
-                                    <p>Precio</p>
+                                    <p>Precio:</p>
                                     <input v-model="product.precio" type="text" placeholder="Precio">
                                 </div>
                                 
                                 <div>
-                                    <p>Stock</p>
+                                    <p>Stock:</p>
                                     <input v-model="product.stock" type="text" placeholder="Stock">
                                 </div>
                                 <div class="item-details">
@@ -131,6 +134,11 @@
     border-radius: 20px;
     padding: 3rem;
 }
+.items{
+    background: rgb(255, 255, 255);
+    border-radius: 20px;
+    padding: 3rem;
+}
 .lista_productos{
     background: purple;
 }
@@ -144,7 +152,9 @@
     color: #fff;
 }
 
-
+.new_product{
+    margin-left: 5rem;
+}
 
 .container{
 
@@ -171,24 +181,55 @@
 
 }
 .row h4{
+    font-weight: bold;
     margin-left: 5rem;
     margin-bottom: 3rem;
     font-size: 2rem;
     color: #3e6553;
 }
+.form{
+    padding: 1rem;
+    margin: 1rem;
+}
+.form p{
+    margin-left: 1.2rem;
+    color:#3e6553;
+    font-size: 1.3rem;
+}
+.form input{
+    margin: .8rem 2.5rem .8rem 2.5rem;
+    padding: .5rem;
+    width: 26vw;
+    color: rgb(143, 143, 143);
+    border: 3px solid;
+    border-color: #3e6553;
+    border-radius: 15px;
+
+}
+
+.item-title{
+    font-weight: bold;
+    margin-left: .5rem;
+    margin-bottom: 1rem;
+    color: #3e6553;
+}
 .title h4{
     margin-left: 2.5rem;
-
+    font-weight: bold;
     font-size: 2rem;
     color: #3e6553;
 }
 .click{
     cursor: pointer;
-    
+    color:#3e6553;
+    font-size: 1.2rem;
+    padding: .5rem;
 }
 .item-details{
     margin-left: 7rem;
     margin-right: 7rem;
+    margin-bottom: 3rem;
+    margin-top: 3rem;
     display: flex;
     justify-content: space-around;
 }
