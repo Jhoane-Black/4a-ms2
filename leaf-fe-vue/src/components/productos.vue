@@ -64,12 +64,14 @@
 
                     <div>
                             <div class="new_product">
-                                <button type="button" class="btn btn-success">Nuevo producto</button>
+                                <button v-if="proveedor_selected"  v-on:click="showCreateProduct" type="button" class="btn btn-success">
+                                    Nuevo producto
+                                </button>
                             </div>
 
                         </div>
 
-                        <div v-if="product_selected" class="form shadow mb-4">
+                        <div v-if="product_selected || product_create" class="form shadow mb-4">
 
                             <h3 class="item-title">{{product.nombre}}</h3>
 
@@ -89,8 +91,12 @@
                                     <input v-model="product.stock" type="text" placeholder="Stock">
                                 </div>
                                 <div class="item-details">
-                                <button v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
+                                <button v-if="product_selected" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
                                     <span v-if="!is_loading">Actualizar producto</span>
+                                    <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
+                                </button>
+                                <button v-if="product_create" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
+                                    <span v-if="!is_loading">Crear producto</span>
                                     <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
                                 </button>
                                 <button type="button" class="btn btn-danger">Eliminar producto</button>
@@ -1155,8 +1161,9 @@ export default {
     data: function() {
       return { 
           is_loading: false,
+          proveedor_selected: false,
           product_selected: false,
-          product_edit: false,
+          product_create: false,
           productos:{},
           proveedores:{},
           product:{
@@ -1166,7 +1173,7 @@ export default {
             stock: 0,
             proveedor: 0,
           },
-          supplier:{
+          proveedor:{
             id: 0,
             nombre: "",
             direccion: "",
@@ -1288,7 +1295,47 @@ export default {
                 },
             })
             .then((result)=>{
-                console.log("FUNCIONÓOOO Edit")
+                console.log("FUNCIONÓOOO")
+                this.getProductos();
+                this.is_loading = false;
+            })
+            .catch((error)=>{
+                console.log("DIO ERROR :c")
+                console.log(error)
+                this.is_loading = false;
+            })
+            
+        },
+
+        createProduct: async function(){
+            
+            this.is_loading = true;
+            this.product.id = +this.product.id;
+            this.product.precio = +this.product.precio;
+            this.product.stock = +this.product.stock;
+            this.product.proveedor = +this.product.proveedor;
+            await this.$apollo.mutate({
+                mutation: gql`
+                mutation CreateProducto($productoData: ProductoInput!) {
+                    createProducto(productoData: $productoData) {
+                        id
+                        nombre
+                        precio
+                        stock
+                        proveedor
+                    }
+                }`,
+                variables: {
+                    productoData: {
+                        nombre: this.product.nombre,
+                        precio: this.product.precio,
+                        stock: this.product.stock,
+                        proveedor: this.product.proveedor
+                    }
+                },
+            })
+            .then((result)=>{
+                console.log("FUNCIONÓOOO")
                 console.log(result)
                 this.getProductos();
                 this.is_loading = false;
@@ -1312,6 +1359,7 @@ export default {
         },
 
         getProductosByProveedor(id_proveedor){
+            this.proveedor_selected = true;
             this.misProductos(id_proveedor);
         },
 
@@ -1320,8 +1368,15 @@ export default {
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         },
 
-        showEditProduct(){
-            this.product_edit = true;
+        showCreateProduct(){
+            this.product={
+                id: 0,
+                nombre: "",
+                precio: 0,
+                stock: 0,
+                proveedor: 0,
+            },
+            this.product_create = true;
         }
 
     }, // Todas las funciones que usa este componente
