@@ -23,7 +23,13 @@
                             <a href="#about" class="nav__link">Acerca</a>
                         </li>
                         <li class="nav__item products">
-                            <button v-on:click="loadProductos" class="btn_logout">Productos</button>
+                            <button v-on:click="loadProductos" class="btn_logout">
+                              <span v-if="is_proveedor">Administrar Productos</span>
+                            </button>
+                                                          
+                            <button v-on:click="loadComprar" class="btn_logout">
+                              <span v-if="!is_proveedor">Comprar en leaf</span>
+                            </button>
                         </li>
 
                     </ul>
@@ -37,11 +43,6 @@
                 </div>
 
                 <div class="nav__btns">
-
-                    <div class="nav__toggle-shop" id="nav-toggle-shop">
-                        <i class="ri-shopping-cart-2-line icon__shop"></i>
-                    </div>
-
 
                     <div class="nav__toggle" id="nav-toggle-menu">
                         <i class="ri-menu-line"></i>
@@ -767,6 +768,7 @@ export default {
     data: function() {
       return {
         is_auth: false,
+        is_proveedor: false,
         username: ""
        }
     }, // Todas las variables de este componentes
@@ -774,6 +776,9 @@ export default {
     methods: { 
       loadProductos(){
         this.$router.push({name: "productos"});
+      },
+      loadComprar(){
+        this.$router.push({name: "carrito"});
       },
       verifyAuth(){
         this.username = localStorage.getItem("username");
@@ -784,10 +789,45 @@ export default {
         localStorage.clear();
         this.verifyAuth()
       },
+       misProveedores: async function (){
+            this.is_loading = true;
+            await this.$apollo.query({
+                query: gql`
+                    query MisProveedores {
+                        MisProveedores {
+                            id
+                            nombre
+                            direccion
+                            nit
+                            user
+                        }
+                    }
+                `,
+            })
+            .then((result) => {
+                console.log("FUNCIONÓOOO")
+                this.is_loading = false;
+                console.log(result)
+                if(result.data.MisProveedores.length > 0){
+                  this.is_proveedor= true;
+                }
+                console.log(this.is_proveedor)
+            })
+            .catch((error)=>{
+                this.show_error = true;
+                console.log("DIO ERROR :c")
+                console.log(error)
+                this.is_loading = false;
+            })
+        },
+      verifyProveedor(){
+        this.misProveedores();
+      }
     }, // Todas las funciones que usa este componente
     
     created: function () {
       this.verifyAuth();
+      this.verifyProveedor();
     } // Eventos: lo que pasa cuando el componente se inicia
 };
 </script>

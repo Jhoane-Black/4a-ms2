@@ -2,7 +2,7 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import App from './App.vue'
 import LogIn from './components/login.vue'
 import signUp from './components/signup.vue'
-import Carrito from './components/carrito.vue'
+import Carrito from './components/listaproductos.vue'
 import Productos from './components/productos.vue'
 import Index from './components/index.vue'
 const routes = [

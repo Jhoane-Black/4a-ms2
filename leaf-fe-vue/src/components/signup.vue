@@ -187,8 +187,13 @@ export default {
 </script>
 
 <style scoped>
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .container {
-  position: relative;
   width: 100%;
   background-color: #fff;
   min-height: 100vh;

@@ -8,7 +8,7 @@
                 <i class="ri-leaf-line nav__logo-icon"></i> Leaf
             </a>
             <div class="nav">
-                <h4>Administrador de productos</h4>
+                <h4>Encuentra acá tus productos</h4>
             </div>
             <div class="nav__item">
                 <a href="#index" class="nav__link">Home</a>
@@ -1177,7 +1177,7 @@ export default {
           product_selected: false,
           product_create: false,
           productos:{},
-          proveedores:{},
+          clientes:{},
           product:{
             id: 0,
             nombre: "",
@@ -1189,7 +1189,12 @@ export default {
             id: 0,
             nombre: "",
             direccion: "",
-            nit: 0,
+            nit: 0
+          },
+          cliente:{
+            id: 0,
+            nombre: "",
+            direccion: "",
           },
        }
     }, // Todas las variables de este componentes
@@ -1216,6 +1221,34 @@ export default {
                 this.is_loading = false;
                 this.proveedores = result.data.MisProveedores;
                 console.log(this.proveedores)
+            })
+            .catch((error)=>{
+                this.show_error = true;
+                console.log("DIO ERROR :c")
+                console.log(error)
+                this.is_loading = false;
+            })
+        },
+
+
+        misClientes: async function (){
+            this.is_loading = true;
+            await this.$apollo.query({
+                query: gql`
+                    query MisClientes {
+                      MisClientes {
+                        id
+                        nombre
+                        direccion
+                        user
+                      }
+                    }
+                `,
+            })
+            .then((result) => {
+                console.log("FUNCIONÓOOO")
+                this.is_loading = false;
+                console.log(result)
             })
             .catch((error)=>{
                 this.show_error = true;
@@ -1409,7 +1442,8 @@ export default {
     }, // Todas las funciones que usa este componente
 
     created: function () {
-        this.misProveedores();
+        this.misClientes();
+        //this.misProveedores();
     } // Eventos: lo que pasa cuando el componente se inicia
 };
 </script>
