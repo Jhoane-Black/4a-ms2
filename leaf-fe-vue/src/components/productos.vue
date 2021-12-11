@@ -8,7 +8,7 @@
                 <i class="ri-leaf-line nav__logo-icon"></i> Leaf
             </a>
             <div class="nav">
-                <h4>Mis productos</h4>
+                <h4>Administrador de productos</h4>
             </div>
             <div class="nav__item">
                 <a href="#index" class="nav__link">Home</a>
@@ -20,29 +20,28 @@
             </div> -->
     <section class="store">
         <div class="container">
-            <div class="items">
+            <div class="items shadow mb-2">
 
                 <div class="row">
+                    <h4>Proveedores Leaf</h4>
+                        <div class="col-12 col-md-6">
 
-                    <div class="col-12 col-md-6">
-
-                        <ol class="lista_productos">
-                            <li v-for="proveedor in proveedores" v-bind:key="proveedor.id">
-                                <span class="click" v-on:click="getProductosByProveedor(proveedor.id)">{{proveedor.nombre}}</span>
-                            </li>
-                        </ol>
-                        
-                    </div>
+                            <ol class="list-group">
+                                <li class="list-group-item" v-for="proveedor in proveedores" v-bind:key="proveedor.id">
+                                    <span class="click" v-on:click="getProductosByProveedor(proveedor.id)">{{proveedor.nombre}}</span>
+                                </li>
+                            </ol>
+                        </div>
 
                 </div>
 
                 <div class="title">
-                    <h1>PRODUCTOS</h1>
+                    <h4>Productos Leaf</h4>
                 </div>
 
                 <div>
-
-                        <table class="table">
+                    <div class="c_table">
+                        <table class="table table-striped">
                             <thead>
                                 <tr>
                                     <th scope="col">Producto</th>
@@ -61,9 +60,10 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
 
                     <div>
-                            <button type="button" class="btn btn-success">Success</button>
+                            <button type="button" class="btn btn-success">Nuevo producto</button>
                         </div>
 
                         <div v-if="product_selected" class="item shadow mb-4">
@@ -85,19 +85,18 @@
                                     <p>Stock</p>
                                     <input v-model="product.stock" type="text" placeholder="Stock">
                                 </div>
-
+                                <div class="item-details">
                                 <button v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
-                                    <span v-if="!is_loading">Actualizar</span>
+                                    <span v-if="!is_loading">Actualizar producto</span>
                                     <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
                                 </button>
-
+                                <button type="button" class="btn btn-danger">Eliminar producto</button>
+                                </div>
                             </form>
 
-                            <div class="item-details">
 
-                                <button type="button" class="btn btn-danger">Eliminar</button>
 
-                            </div>
+                            
                             
                         </div>
                         
@@ -128,7 +127,7 @@
     box-shadow: rgb(212, 212, 212);
 }
 .items{
-    background: rgb(209, 209, 209);
+    background: rgb(255, 255, 255);
     border-radius: 20px;
     padding: 3rem;
 }
@@ -145,6 +144,8 @@
     color: #fff;
 }
 
+
+
 .container{
 
 
@@ -157,11 +158,52 @@
     height:100%;
     background: blue;
 }
+.list-group{
+    font-size: 1rem;
+}
+.list-group span{
+    margin: 1rem;
+}
+.row{
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
 
+}
+.row h4{
+    margin-left: 5rem;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+    color: #3e6553;
+}
+.title h4{
+    margin-left: 2.5rem;
+
+    font-size: 2rem;
+    color: #3e6553;
+}
 .click{
     cursor: pointer;
+    
+}
+.item-details{
+    margin-left: 7rem;
+    margin-right: 7rem;
+    display: flex;
+    justify-content: space-around;
 }
 
+.c_table{
+    margin: 2rem 2rem 2rem 2rem;
+}
+.table th{
+    font-size: 1.3rem;
+    color: #3e6553;
+}
+.table td{
+    font-size: 1rem;
+    color: #3e6553;
+}
 header, main
 button,
 input,
@@ -425,6 +467,7 @@ body.dark-theme {
   border-radius: .5rem;
   font-weight: 500;
   transition: .3s;
+  width: 15rem;
 
 }
 
