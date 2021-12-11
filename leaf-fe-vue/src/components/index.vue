@@ -7,6 +7,8 @@
                     <i class="ri-leaf-line nav__logo-icon"></i> Leaf
                 </a>
 
+                <h5>¡Hola {{username}}!</h5>
+
                 <div class="nav__menu" id="nav-menu">
 
                     <ul class="nav__list"> 
@@ -764,7 +766,8 @@ export default {
 
     data: function() {
       return {
-        is_auth: false
+        is_auth: false,
+        username: ""
        }
     }, // Todas las variables de este componentes
 
@@ -773,6 +776,7 @@ export default {
         this.$router.push({name: "productos"});
       },
       verifyAuth(){
+        this.username = localStorage.getItem("username");
         this.is_auth = localStorage.getItem("is_auth") || false;
       },
       logout(){

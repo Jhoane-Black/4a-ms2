@@ -28,7 +28,7 @@
 
                             <ol class="list-group">
                                 <li class="list-group-item" v-for="proveedor in proveedores" v-bind:key="proveedor.id">
-                                    <span class="click" v-on:click="getProductosByProveedor(proveedor.id)">{{proveedor.nombre}}</span>
+                                    <span class="click" v-on:click="setProveedor(proveedor)">{{proveedor.nombre}}</span>
                                 </li>
                             </ol>
                         </div>
@@ -73,9 +73,11 @@
 
                         <div v-if="product_selected || product_create" class="form shadow mb-4">
 
-                            <h3 class="item-title">{{product.nombre}}</h3>
+                            <h2 v-if="product_selected" class="item-title">Actualizar Producto</h2>
+                            <h2 v-if="product_create" class="item-title">Crear Producto</h2>
+                            <h3 class="item-title">{{proveedor.nombre}}</h3>
 
-                            <form v-on:submit.prevent="processEditProduct">
+                            <form>
 
                                 <div>
                                     <p>Nombre del Producto:</p>
@@ -91,15 +93,19 @@
                                     <input v-model="product.stock" type="text" placeholder="Stock">
                                 </div>
                                 <div class="item-details">
-                                <button v-if="product_selected" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
-                                    <span v-if="!is_loading">Actualizar producto</span>
-                                    <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
-                                </button>
-                                <button v-if="product_create" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
-                                    <span v-if="!is_loading">Crear producto</span>
-                                    <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
-                                </button>
-                                <button type="button" class="btn btn-danger">Eliminar producto</button>
+
+                                    <button v-on:click="updateProduct" v-if="product_selected" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
+                                        <span v-if="!is_loading">Actualizar producto</span>
+                                        <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
+                                    </button>
+
+                                    <button v-on:click="createProduct" v-if="product_create" v-bind:class="{'disabled': is_loading}" type="button" class="btn btn-primary">
+                                        <span v-if="!is_loading">Crear producto</span>
+                                        <div v-if="is_loading" class="spinner-border text-light" role="status"></div>
+                                    </button>
+
+                                    <button v-if="product_selected" v-on:click="deleteProduct(this.product.id)" type="button" class="btn btn-danger">Eliminar producto</button>
+                                
                                 </div>
                             </form>
 
@@ -1177,7 +1183,7 @@ export default {
             id: 0,
             nombre: "",
             direccion: "",
-            nit: "",
+            nit: 0,
           },
        }
     }, // Todas las variables de este componentes
@@ -1235,6 +1241,7 @@ export default {
             .then((result) => {
                 console.log("FUNCIONÓOOO")
                 this.productos = result.data.productosByproveedor;
+                console.log(this.productos)
                 this.is_loading = false;
             })
             .catch((error)=>{
@@ -1245,35 +1252,7 @@ export default {
             })
         },
 
-        getProductos: async function (){
-            this.is_loading = true;
-            await this.$apollo.query({
-                query: gql`
-                    query GetProductos {
-                        getProductos {
-                            id
-                            nombre
-                            precio
-                            stock
-                            proveedor
-                        }      
-                    }
-                `,
-            })
-            .then((result) => {
-                console.log("FUNCIONÓOOO")
-                this.is_loading = false;
-                this.productos = result.data.getProductos;
-            })
-            .catch((error)=>{
-                this.show_error = true;
-                console.log("DIO ERROR :c")
-                console.log(error)
-                this.is_loading = false;
-            })
-        },
-
-        processEditProduct: async function(){
+        updateProduct: async function(){
             this.is_loading = true;
             this.product.id = +this.product.id;
             this.product.precio = +this.product.precio;
@@ -1296,7 +1275,7 @@ export default {
             })
             .then((result)=>{
                 console.log("FUNCIONÓOOO")
-                this.getProductos();
+                this.misProductos(this.product.proveedor);
                 this.is_loading = false;
             })
             .catch((error)=>{
@@ -1308,37 +1287,68 @@ export default {
         },
 
         createProduct: async function(){
-            
             this.is_loading = true;
-            this.product.id = +this.product.id;
             this.product.precio = +this.product.precio;
             this.product.stock = +this.product.stock;
-            this.product.proveedor = +this.product.proveedor;
             await this.$apollo.mutate({
                 mutation: gql`
                 mutation CreateProducto($productoData: ProductoInput!) {
-                    createProducto(productoData: $productoData) {
-                        id
-                        nombre
-                        precio
-                        stock
-                        proveedor
-                    }
+                  createProducto(productoData: $productoData) {
+                    id
+                    nombre
+                    precio
+                    stock
+                    proveedor
+                  }
                 }`,
                 variables: {
                     productoData: {
                         nombre: this.product.nombre,
                         precio: this.product.precio,
                         stock: this.product.stock,
-                        proveedor: this.product.proveedor
+                        proveedor: this.proveedor.id
                     }
                 },
             })
             .then((result)=>{
                 console.log("FUNCIONÓOOO")
-                console.log(result)
-                this.getProductos();
+                alert("Producto Creado Correctamente")
+                
+                setTimeout(() => {   
+                  this.getProductosByProveedor(this.proveedor.id);
+                  this.is_loading = false
+                }, 500);
+
+            })
+            .catch((error)=>{
+                console.log("DIO ERROR :c")
+                console.log(error)
                 this.is_loading = false;
+            })
+            
+        },
+
+        deleteProduct: async function(producto_id){
+            this.is_loading = true;
+            console.log(producto_id)
+            this.product.precio = +this.product.precio;
+            this.product.stock = +this.product.stock;
+            await this.$apollo.mutate({
+                mutation: gql`
+                  mutation DeleteProducto($deleteProductoId: Int!) {
+                    deleteProducto(id: $deleteProductoId)
+                  }
+                `,
+                variables: {
+                    deleteProductoId: producto_id
+                },
+            })
+            .then((result)=>{
+                console.log("FUNCIONÓOOO")    
+                this.getProductosByProveedor(this.proveedor.id);
+                alert("Producto Eliminado Correctamente")
+                this.is_loading = false
+
             })
             .catch((error)=>{
                 console.log("DIO ERROR :c")
@@ -1350,12 +1360,12 @@ export default {
 
         getOneProduct(producto){
             this.product_selected = true;
+            this.product_create = false;
             this.product.id = producto.id;
             this.product.nombre = producto.nombre;
             this.product.precio = producto.precio;
             this.product.stock = producto.stock;
             this.product.proveedor = producto.proveedor;
-            //console.log(this.product);
         },
 
         getProductosByProveedor(id_proveedor){
@@ -1368,22 +1378,32 @@ export default {
             return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
         },
 
+        setProveedor(prove){
+            this.getProductosByProveedor(prove.id)
+            this.proveedor={
+                id: prove.id,
+                nombre: prove.nombre,
+                direccion: prove.direccion,
+                nit: prove.nit,
+            };
+        },
+
         showCreateProduct(){
+            this.product_create = true;
+            this.product_selected = false;
             this.product={
                 id: 0,
                 nombre: "",
                 precio: 0,
                 stock: 0,
                 proveedor: 0,
-            },
-            this.product_create = true;
+            }
         }
 
     }, // Todas las funciones que usa este componente
 
     created: function () {
         this.misProveedores();
-        //this.getProductos();
     } // Eventos: lo que pasa cuando el componente se inicia
 };
 </script>
